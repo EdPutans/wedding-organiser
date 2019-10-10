@@ -1,0 +1,23 @@
+$white: #fff;
+$lightGrey: #ccc;
+$grey: #888;
+$black: #000;
+$lightRed: #ff6d6d;
+$lightBlue: #3FB0F0;
+$green: #7ED222;
+$lightYellow: #FCEC8E;
+$gold: #c7ad1b;
+$veryDarkGrey : #262626;
+
+:export{
+ grey: $grey;
+ black: $black;
+ lighgrey: $lighgrey;
+ white: $white;
+ lightRed: $lightRed;
+ lightBlue: $lightBlue;
+ green: $green;
+ lightYellow: $lightYellow;
+ veryDarkGrey: $veryDarkGrey;
+ gold: $gold;
+}
