@@ -1,0 +1,10 @@
+.App{
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  &_inner{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}

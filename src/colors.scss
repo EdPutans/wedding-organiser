@@ -1,3 +1,4 @@
+// colors
 $white: #fff;
 $lightGrey: #ccc;
 $grey: #888;
@@ -8,16 +9,23 @@ $green: #7ED222;
 $lightYellow: #FCEC8E;
 $gold: #c7ad1b;
 $veryDarkGrey : #262626;
+// other
+$darken: rgba(0, 0, 0, 0.6);
+$slightlyDarken: rgba(0, 0, 0, 0.3);
+// images
+$bannerImage: url('');
 
 :export{
- grey: $grey;
- black: $black;
- lighgrey: $lighgrey;
- white: $white;
- lightRed: $lightRed;
- lightBlue: $lightBlue;
- green: $green;
- lightYellow: $lightYellow;
- veryDarkGrey: $veryDarkGrey;
- gold: $gold;
+  darken: $darken;
+  bannerImage: $bannerImage;
+  grey: $grey;
+  black: $black;
+  lightGrey: $lightGrey;
+  white: $white;
+  lightRed: $lightRed;
+  lightBlue: $lightBlue;
+  green: $green;
+  lightYellow: $lightYellow;
+  veryDarkGrey: $veryDarkGrey;
+  gold: $gold;
 }

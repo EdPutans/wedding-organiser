@@ -1,0 +1,8 @@
+.ClickableDiv {
+  cursor: pointer;
+  outline: none;
+  &_disabled { 
+    cursor: unset;
+    outline: none;
+  }
+}
