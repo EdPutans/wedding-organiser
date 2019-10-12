@@ -3,7 +3,7 @@ import colors from './colors.scss';
 
 export default createMuiTheme({
   typography: {
-    fontSize: '1em',
+    fontSize: 12,
   },
   palette: {
     primary: { main: colors.gold },

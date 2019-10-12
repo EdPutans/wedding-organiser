@@ -15,12 +15,14 @@ const ImageButton = ({ img, text, onClick }) => {
 };
 
 ImageButton.propTypes = {
-  img: PropTypes.string.isRequired,
+  img: PropTypes.string,
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func,
 };
 ImageButton.defaultProps = {
   onClick: () => console.log('not implemented yet'),
+  // img:
+  //   'https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg',
 };
 
 export default ImageButton;
