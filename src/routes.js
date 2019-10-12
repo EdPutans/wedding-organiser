@@ -5,24 +5,52 @@ import './app.scss';
 
 const routes = {
   main: {
-    path: '/',
+    path: '',
     component: Main,
     props: {},
+    subRoutes: {
+      dab: {
+        path: '/dab',
+        component: Main,
+        props: {},
+        subRoutes: {
+          yeet: {
+            path: '/yeet',
+            component: Main,
+            props: {},
+          },
+          tpose: {
+            path: '/tpose',
+            component: Main,
+            props: {},
+          },
+        },
+      },
+    },
   },
 };
 
-export default () =>
-  Object.keys(routes).map(route => {
-    const { component, path, props } = routes[route];
-    return (
+const generatedRoutes = [];
+const recursivelyCreateRoutes = (routeList, subPathName) => {
+  return Object.keys(routeList).map(route => {
+    const pathName = subPathName ? subPathName + routeList[route].path : routeList[route].path;
+    if (routeList[route].subRoutes) {
+      recursivelyCreateRoutes(routeList[route].subRoutes, pathName);
+    }
+    return generatedRoutes.push(
       <Route
-        key={path}
-        path={path}
+        exact
+        path={pathName}
         render={() => (
           <div className="App">
-            <div className="App_inner">{component(props)}</div>
+            <div className="App_inner">{routeList[route].component(routeList[route].props)}</div>
           </div>
         )}
-      />
+      />,
     );
   });
+};
+
+recursivelyCreateRoutes(routes);
+
+export default () => generatedRoutes;
