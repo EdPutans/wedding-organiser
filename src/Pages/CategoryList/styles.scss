@@ -8,7 +8,7 @@
     min-height: 200px;
     padding: 16px 48px;
     margin-bottom: 100px;
-    background-color: lightblue;
+    background-color: #80DEEA;
     &_text{
       font-style: italic;
       text-indent: 48px;
@@ -24,7 +24,8 @@
     padding: 16px;
     border-bottom: 1px solid $gold;
     & div{
-      min-width: 200px;
+      min-width: 250px;
+      flex: 1;
     }
     &_text{
       padding: 8px;
@@ -54,16 +55,20 @@
       &_container{
         flex: 1;
         margin: 0px 16px;
+        display: flex;
+        align-items: center;
       }
     }
     &_links {
       padding: 8px;
       display: flex;
       flex-direction: column;
-      & a{
-        margin: 4px;
-        color: $darkGrey;
-        text-decoration: none;
+      &_link{
+        &_container{
+          margin: 4px;
+          display: flex;
+          flex-direction: row;
+        }
         &:hover{
           text-decoration: underline;
         }

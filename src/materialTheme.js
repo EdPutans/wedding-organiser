@@ -9,4 +9,5 @@ export default createMuiTheme({
     primary: { main: colors.gold },
     secondary: { main: colors.lightGrey },
   },
+  overrides: {},
 });
