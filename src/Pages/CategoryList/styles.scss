@@ -7,6 +7,7 @@
   &_specs{
     min-height: 200px;
     padding: 16px 48px;
+    margin-bottom: 100px;
     background-color: lightblue;
     &_text{
       font-style: italic;
@@ -35,6 +36,17 @@
         padding: 8px !important;
         border: 1px solid $gold;
         border-radius: 4px;
+      }
+      &_saveButton{
+        margin-right: 4px !important;
+        &_container{
+          padding: 8px 0;
+          display: flex;
+          flex-direction: row;
+        }
+        flex: 1;
+        background-color: $gold !important;
+        color: white !important;
       }
     }
     &_img {

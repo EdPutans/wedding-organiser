@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
-import { Input } from '@material-ui/core';
+import { Input, Button } from '@material-ui/core';
 import { getLink } from '../../misc/shared';
 
 const hardcodedInfo = {
@@ -39,6 +39,17 @@ const CategoryList = ({ entity }) => {
   const [initialEntityInfo, setInitialEntityInfo] = useState(null);
   const [entityInfo, setEntityInfo] = useState(null);
 
+  const saveChanges = item => {
+    // request .then goes here
+  };
+
+  const undoChanges = item => {
+    const currentIndex = entityInfo.items.findIndex(i => i.id === item.id);
+    const initialIndex = initialEntityInfo.items.findIndex(i => i.id === item.id);
+    const newItems = [...entityInfo.items];
+    newItems[currentIndex].text = initialEntityInfo.items[initialIndex].text;
+    setEntityInfo({ ...entityInfo, items: newItems });
+  };
   useEffect(() => {
     setEntityInfo(JSON.parse(JSON.stringify(hardcodedInfo)));
     setInitialEntityInfo(JSON.parse(JSON.stringify(hardcodedInfo)));
@@ -57,8 +68,6 @@ const CategoryList = ({ entity }) => {
   const hasChanges = item => {
     const currentIndex = entityInfo.items.findIndex(i => i.id === item.id);
     const initialIndex = initialEntityInfo.items.findIndex(i => i.id === item.id);
-    console.log(entityInfo.items[currentIndex].text, initialEntityInfo.items[initialIndex].text);
-
     return entityInfo.items[currentIndex].text !== initialEntityInfo.items[initialIndex].text;
   };
 
@@ -84,7 +93,17 @@ const CategoryList = ({ entity }) => {
                 fullWidth
                 onChange={e => updateText(e, item)}
               />
-              {hasChanges(item) && <button>gae</button>}
+              {hasChanges(item) && (
+                <div className="CategoryList_specRow_text_saveButton_container">
+                  <Button
+                    className="CategoryList_specRow_text_saveButton"
+                    onClick={() => saveChanges(item)}
+                  >
+                    Save
+                  </Button>
+                  <Button onClick={() => undoChanges(item)}>Undo</Button>
+                </div>
+              )}
             </div>
             <div className="CategoryList_specRow_links">
               {item.links.map((link, i) => (
