@@ -5,6 +5,7 @@ import Main from './Pages/Main/Main';
 import './app.scss';
 import UnderConstruction from './Pages/UnderConstruction';
 import Clothing from './Pages/Clothing/Clothing';
+import CategoryList from './Components/CategoryList/CategoryList';
 // import FourOhFour from './Pages/404';
 
 export const routes = {
@@ -19,6 +20,13 @@ export const routes = {
         buttonText: 'Clothing',
         imageButton: '',
         props: {},
+        subRoutes: {
+          shoes: {
+            path: '/shoes',
+            buttonText: 'Shoes',
+            component: () => <CategoryList entity="shoes" />,
+          },
+        },
       },
       jewelry: {
         path: '/jewelry',

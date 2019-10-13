@@ -2,6 +2,7 @@
 $white: #fff;
 $lightGrey: #ccc;
 $grey: #888;
+$darkGrey: #333333;
 $black: #000;
 $lightRed: #ff6d6d;
 $orange: #FFA000;
@@ -18,6 +19,7 @@ $slightlyDarken: rgba(0, 0, 0, 0.3);
 $bannerImage: url('');
 
 :export{
+  darkGrey: $darkGrey;
   darken: $darken;
   bannerImage: $bannerImage;
   grey: $grey;

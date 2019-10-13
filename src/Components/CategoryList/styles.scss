@@ -1,0 +1,61 @@
+@import '../../colors.scss';
+
+.CategoryList{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  &_specs{
+    min-height: 200px;
+    padding: 16px 48px;
+    background-color: lightblue;
+    &_text{
+      font-style: italic;
+      text-indent: 48px;
+      color: $white;
+    }
+  }
+  &_specRow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 200px;
+    margin: 16px;
+    padding: 16px;
+    border-bottom: 1px solid $gold;
+    & div{
+      min-width: 200px;
+    }
+    &_text{
+      padding: 8px;
+      flex: 1;
+      &_input{
+        & textarea{
+          color: $darkGrey;
+        }
+        padding: 8px !important;
+        border: 1px solid $gold;
+        border-radius: 4px;
+      }
+    }
+    &_img {
+      height: 180px;
+      &_container{
+        flex: 1;
+        margin: 0px 16px;
+      }
+    }
+    &_links {
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      & a{
+        margin: 4px;
+        color: $darkGrey;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

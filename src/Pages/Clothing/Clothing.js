@@ -12,7 +12,7 @@ const listItems = {
   him: [
     {
       name: 'Shoes',
-      link: '/shoes',
+      link: '/clothing/shoes',
     },
     {
       name: 'Suit',
