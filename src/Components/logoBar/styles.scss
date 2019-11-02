@@ -1,0 +1,19 @@
+@import '../../colors.scss';
+
+.LogoBar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $logoBarSize;
+  background-color: $white;
+  z-index: 9;
+  display: flex;
+  &_pageName{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    color: $grey;
+    font-size: 20px;
+  }
+}

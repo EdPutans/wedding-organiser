@@ -1,38 +1,26 @@
-// colors
+
+
 $white: #fff;
-$lightGrey: #e0e0e0;
-$grey: #888;
-$darkGrey: #333333;
-$black: #000;
+$grey: #E1E2E1;
 $lightRed: #ff6d6d;
-$orange: #FFA000;
-$lightBlue: #3FB0F0;
-$green: #7ED222;
-$lightYellow: #FCEC8E;
-// $gold: #c7ad1b;
-$gold: #FFC400;
-$veryDarkGrey : #262626;
-$gentlePurple: #9176c7;
-// other
-$darken: rgba(0, 0, 0, 0.6);
-$slightlyDarken: rgba(0, 0, 0, 0.3);
-// images
-$bannerImage: url('');
+$darken: rgba(0, 0, 0, 0.5);
+$logoBarSize: 40px;
+$blackish: #393435;
+$pink: #FBE9E7;
+$copper: #C8B7B5;
+$secondaryPink: #EFE1E3;
+
+$sidebarWidth: 250px;
 
 :export{
-  darkGrey: $darkGrey;
+  sidebarWidth: $sidebarWidth;
+  logoBarSize: $logoBarSize;
   darken: $darken;
-  bannerImage: $bannerImage;
   grey: $grey;
-  orange: $orange;
-  gentlePurple: $gentlePurple;
-  black: $black;
-  lightGrey: $lightGrey;
   white: $white;
   lightRed: $lightRed;
-  lightBlue: $lightBlue;
-  green: $green;
-  lightYellow: $lightYellow;
-  veryDarkGrey: $veryDarkGrey;
-  gold: $gold;
+  secondaryPink: $secondaryPink;
+  copper: $copper;
+  pink: $pink;
+  blackish: $blackish;
 }

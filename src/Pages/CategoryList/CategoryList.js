@@ -6,8 +6,6 @@ import { getLink } from '../../misc/shared';
 import placeholderImage from '../../Components/temp/placeholder.jpg';
 
 const hardcodedInfo = {
-  specsText:
-    'We want wide rose gold rings (possibly + other metals or gemstones). Male size - X, female size - L 1/2',
   items: [
     {
       id: 1,
@@ -46,6 +44,7 @@ const CategoryList = ({ entity }) => {
   const [entityInfo, setEntityInfo] = useState(null);
   const [addingLinkId, setAddingLinkId] = useState(false);
   const [newLink, setNewLink] = useState(null);
+
   const saveChanges = item => {
     // request .then goes here
   };
@@ -86,10 +85,7 @@ const CategoryList = ({ entity }) => {
     setNewLink(null);
   };
 
-  const removeLink = (item, link) => {
-    const itemToChangeIndex = entityInfo.items.findIndex(i => i.id === item.id);
-    const newItems = [...entityInfo.items];
-  };
+  const removeLink = (item, link) => {};
 
   const categoryRow = item => (
     <div className="CategoryList_specRow" key={item.id}>
@@ -156,10 +152,13 @@ const CategoryList = ({ entity }) => {
 
   return (
     <div className="CategoryList">
-      <div className="CategoryList_specs">
-        <h3 className="CategoryList_specs_text">{entityInfo && entityInfo.specsText}</h3>
+      {/* <div className="CategoryList_specs"> */}
+      {/* <h3 className="CategoryList_specs_text">{entity.toUpperCase()}</h3> */}
+      {/* <p className="CategoryList_specs_text">{entityInfo && entityInfo.specsText}</p> */}
+      {/* </div> */}
+      <div className="CategoryList_outter">
+        {entityInfo && initialEntityInfo && entityInfo.items.map(item => categoryRow(item))}
       </div>
-      {entityInfo && initialEntityInfo && entityInfo.items.map(item => categoryRow(item))}
     </div>
   );
 };

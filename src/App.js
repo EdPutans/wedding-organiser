@@ -6,6 +6,7 @@ import { MuiThemeProvider } from '@material-ui/core';
 import megaReducer from './redux/reducerConfig';
 import Routes from './routes';
 import materialTheme from './materialTheme';
+import './shared.scss';
 
 const store = createStore(megaReducer);
 

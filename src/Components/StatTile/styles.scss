@@ -1,0 +1,21 @@
+@import '../../colors.scss';
+
+.StatTile{
+  flex: 1;
+  margin: 8px;
+  padding: 16px;
+  min-width: 300px;
+  border-radius: 30px;
+  border: 1px solid;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &_title{
+    font-size: 30px;
+  }
+  &_value{
+    font-size: 30px;
+    text-align: right;
+  }
+}

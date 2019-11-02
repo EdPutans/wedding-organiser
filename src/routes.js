@@ -4,8 +4,9 @@ import React from 'react';
 import Main from './Pages/Main/Main';
 import './app.scss';
 import UnderConstruction from './Pages/UnderConstruction';
-import Clothing from './Pages/Clothing/Clothing';
+import Category from './Pages/Category/Category';
 import CategoryList from './Pages/CategoryList/CategoryList';
+import Sidebar from './Components/Sidebar/Sidebar';
 // import FourOhFour from './Pages/404';
 
 export const routes = {
@@ -16,7 +17,7 @@ export const routes = {
     subRoutes: {
       clothing: {
         path: '/clothing',
-        component: Clothing,
+        component: Category,
         buttonText: 'Clothing',
         imageButton: '',
         props: {},
@@ -151,12 +152,18 @@ const recursivelyCreateRoutes = (routeList, subPathName) => {
         path={pathName}
         render={browserProps => (
           <div className="App">
+            <Sidebar
+              routes={Object.keys(routes.main.subRoutes).map(r => routes.main.subRoutes[r])}
+              {...browserProps}
+            />
             <div className="App_inner">
-              {page.component ? (
-                page.component({ ...page.props, ...browserProps })
-              ) : (
-                <UnderConstruction />
-              )}
+              <div>
+                {page.component ? (
+                  page.component({ ...page.props, ...browserProps })
+                ) : (
+                  <UnderConstruction />
+                )}
+              </div>
             </div>
           </div>
         )}

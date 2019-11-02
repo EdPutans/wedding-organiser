@@ -1,28 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.scss';
-import ImageButton from '../../Components/ImageButton/ImageButton';
-import miau from '../../Components/temp/miau.JPG';
-
-// eslint-disable-next-line import/no-cycle
-import { routes } from '../../routes';
+import { historyProps } from '../../misc/proptypes';
+import StatTile from '../../Components/StatTile/StatTile';
+import colors from '../../colors.scss';
 
 const Main = ({ history }) => {
+  const { pink, blackish, white, grey } = colors;
   return (
-    <React.Fragment>
-      <div className="Main_banner" style={{ backgroundImage: `url(${miau})` }} />
-      <div className="Main_content">
-        {Object.keys(routes.main.subRoutes).map(link => (
-          <div key={link.buttonText} className="Main_content_button">
-            <ImageButton
-              text={routes.main.subRoutes[link].buttonText}
-              img={routes.main.subRoutes[link].imageButton}
-              onClick={() => history.push(routes.main.subRoutes[link].path)}
-            />
-          </div>
-        ))}
+    <div className="Main">
+      <div className="Main_tileRow">
+        <StatTile
+          title="Edgar + Alina"
+          value="Time remain goes here"
+          backgroundColor={grey}
+          textColor={white}
+        />
       </div>
-    </React.Fragment>
+      <div className="Main_tileRow">
+        <StatTile
+          title="Spent so far..."
+          value="£ 0"
+          backgroundColor={blackish}
+          textColor={white}
+        />
+        <StatTile
+          title="Budget remaining"
+          value="£ 15 000"
+          backgroundColor={blackish}
+          textColor={pink}
+        />
+      </div>
+    </div>
   );
 };
 
 export default Main;
+
+Main.propTypes = {
+  history: historyProps.isRequired,
+};

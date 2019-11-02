@@ -6,8 +6,8 @@ export default createMuiTheme({
     fontSize: 12,
   },
   palette: {
-    primary: { main: colors.gold },
-    secondary: { main: colors.lightGrey },
+    primary: { main: colors.pink },
+    secondary: { main: colors.grey },
   },
   overrides: {},
 });

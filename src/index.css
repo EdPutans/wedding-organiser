@@ -16,9 +16,9 @@ p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-div {
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* flex: 1; */
- }
+@font-face{
+  font-family: "Fancy";
+  src:url("./misc/Modern_no_20.ttf");
+}
+
 
