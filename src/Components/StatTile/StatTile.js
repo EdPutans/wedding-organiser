@@ -8,7 +8,7 @@ const StatTile = ({ title, value, borderColor, backgroundColor, textColor }) => 
       className="StatTile"
       style={{
         backgroundColor,
-        borderColor,
+        borderColor: borderColor || backgroundColor,
       }}
     >
       <h2 className="StatTile_title Fancy" style={{ color: textColor }}>
@@ -22,10 +22,16 @@ const StatTile = ({ title, value, borderColor, backgroundColor, textColor }) => 
 };
 
 StatTile.propTypes = {
-  width: PropTypes.oneOf(['full', 'half']),
-};
-StatTile.defaultProps = {
-  width: 'half',
+  title: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  borderColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  textColor: PropTypes.string,
 };
 
+StatTile.defaultProps = {
+  borderColor: undefined,
+  backgroundColor: undefined,
+  textColor: undefined,
+};
 export default StatTile;

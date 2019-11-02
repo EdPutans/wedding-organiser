@@ -1,27 +1,48 @@
 import React from 'react';
 import { Switch, BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { connect } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core';
-import megaReducer from './redux/reducerConfig';
+import ReactResizeDetector from 'react-resize-detector';
+import PropTypes from 'prop-types';
+
 import Routes from './routes';
 import materialTheme from './materialTheme';
 import './shared.scss';
+import { screenResizeAction } from './redux/mainPage/actions';
+import { getIsMobile } from './redux/mainPage/selectors';
+import ContentWrapper from './Components/ContentWrapper/ContentWrapper';
 
-const store = createStore(megaReducer);
-
-function App() {
+const App = ({ detectResize, isMobile }) => {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
+    <BrowserRouter>
+      <React.Fragment>
+        <ReactResizeDetector handleWidth onResize={w => detectResize(w)} />
         <MuiThemeProvider theme={materialTheme}>
           <Switch>
-            <Routes />
+            <ContentWrapper isMobile={isMobile}>
+              <Routes />
+            </ContentWrapper>
           </Switch>
         </MuiThemeProvider>
-      </BrowserRouter>
-    </Provider>
+      </React.Fragment>
+    </BrowserRouter>
   );
-}
+};
 
-export default App;
+App.propTypes = {
+  detectResize: PropTypes.func.isRequired,
+  isMobile: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => ({
+  isMobile: getIsMobile(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+  detectResize: w => dispatch(screenResizeAction(w)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);

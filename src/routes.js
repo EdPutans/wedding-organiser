@@ -2,12 +2,9 @@ import { Route } from 'react-router-dom';
 import React from 'react';
 // eslint-disable-next-line import/no-cycle
 import Main from './Pages/Main/Main';
-import './app.scss';
 import UnderConstruction from './Pages/UnderConstruction';
 import Category from './Pages/Category/Category';
 import CategoryList from './Pages/CategoryList/CategoryList';
-import Sidebar from './Components/Sidebar/Sidebar';
-// import FourOhFour from './Pages/404';
 
 export const routes = {
   main: {
@@ -150,23 +147,13 @@ const recursivelyCreateRoutes = (routeList, subPathName) => {
         key={pathName}
         exact
         path={pathName}
-        render={browserProps => (
-          <div className="App">
-            <Sidebar
-              routes={Object.keys(routes.main.subRoutes).map(r => routes.main.subRoutes[r])}
-              {...browserProps}
-            />
-            <div className="App_inner">
-              <div>
-                {page.component ? (
-                  page.component({ ...page.props, ...browserProps })
-                ) : (
-                  <UnderConstruction />
-                )}
-              </div>
-            </div>
-          </div>
-        )}
+        component={browserProps =>
+          page.component ? (
+            page.component({ ...page.props, ...browserProps })
+          ) : (
+            <UnderConstruction />
+          )
+        }
       />,
     );
   });

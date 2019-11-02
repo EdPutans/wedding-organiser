@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './styles.scss';
+import { connect } from 'react-redux';
 import Drawer from '@material-ui/core/Drawer';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { getIsMobile } from '../../redux/mainPage/selectors';
 
-export const mobileSidebar = ({ routes }) => {
-  const [open, setOpen] = useState(true);
+const MobileSidebar = ({ routes }) => {
+  const [open, setOpen] = useState(false);
 
   return (
     <Drawer variant="temporary" anchor="left" open={open} onClose={() => setOpen(false)}>
@@ -41,7 +44,22 @@ const Sidebar = ({ routes }) => {
   );
 };
 
-Sidebar.propTypes = {};
-Sidebar.defaultProps = {};
+const ConditionalSidebar = ({ isMobile, routes }) =>
+  !isMobile ? <Sidebar routes={routes} /> : <MobileSidebar routes={routes} />;
 
-export default Sidebar;
+Sidebar.propTypes = {
+  routes: PropTypes.shape({}).isRequired,
+};
+MobileSidebar.propTypes = {
+  routes: PropTypes.shape({}).isRequired,
+};
+ConditionalSidebar.propTypes = {
+  routes: PropTypes.shape({}).isRequired,
+  isMobile: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => ({
+  isMobile: getIsMobile(state),
+});
+
+export default connect(mapStateToProps)(ConditionalSidebar);

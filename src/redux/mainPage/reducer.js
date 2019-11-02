@@ -1,7 +1,19 @@
+import * as c from './constants';
+
 const initialState = {
-  test: 'yeet',
+  isMobile: false,
+  isDesktop: false,
 };
 
 export default (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case c.RESIZE_SCREEN:
+      return {
+        ...state,
+        isMobile: action.payload <= 768,
+        isDesktop: action.payload > 768,
+      };
+    default:
+      return state;
+  }
 };

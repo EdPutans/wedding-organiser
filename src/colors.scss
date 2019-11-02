@@ -1,10 +1,11 @@
 
 
 $white: #fff;
-$grey: #E1E2E1;
+$lightGrey: #E1E2E1;
+$grey: #A2A2A2;
 $lightRed: #ff6d6d;
 $darken: rgba(0, 0, 0, 0.5);
-$logoBarSize: 40px;
+$logoBarSize: 50px;
 $blackish: #393435;
 $pink: #FBE9E7;
 $copper: #C8B7B5;
@@ -16,6 +17,7 @@ $sidebarWidth: 250px;
   sidebarWidth: $sidebarWidth;
   logoBarSize: $logoBarSize;
   darken: $darken;
+  lightGrey: $lightGrey;
   grey: $grey;
   white: $white;
   lightRed: $lightRed;

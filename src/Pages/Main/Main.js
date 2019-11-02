@@ -5,13 +5,17 @@ import StatTile from '../../Components/StatTile/StatTile';
 import colors from '../../colors.scss';
 
 const Main = ({ history }) => {
-  const { pink, blackish, white, grey } = colors;
+  const [timeRemaining, setTimeRemaining] = useState(
+    'X months, X days, X hours X minutes remain...',
+  );
+  const { pink, blackish, white, grey, copper } = colors;
+
   return (
     <div className="Main">
       <div className="Main_tileRow">
         <StatTile
           title="Edgar + Alina"
-          value="Time remain goes here"
+          value={timeRemaining}
           backgroundColor={grey}
           textColor={white}
         />
@@ -22,12 +26,30 @@ const Main = ({ history }) => {
           value="£ 0"
           backgroundColor={blackish}
           textColor={white}
+          borderColor={pink}
         />
         <StatTile
           title="Budget remaining"
           value="£ 15 000"
-          backgroundColor={blackish}
-          textColor={pink}
+          borderColor={copper}
+          textColor={copper}
+        />
+      </div>
+      <div className="Main_tileRow">
+        <StatTile
+          title="Guests invited"
+          value="12 / 51"
+          textColor={grey}
+          backgroundColor={white}
+          borderColor={copper}
+        />
+      </div>
+      <div className="Main_tileRow">
+        <StatTile
+          title="Tasks completed"
+          value="29 / 171"
+          backgroundColor={copper}
+          textColor={white}
         />
       </div>
     </div>
