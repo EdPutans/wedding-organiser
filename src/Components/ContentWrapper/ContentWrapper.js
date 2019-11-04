@@ -6,10 +6,15 @@ import { routes } from '../../routes';
 import './app.scss';
 
 const ContentWrapper = ({ children, isMobile }) => {
+  const [mobileSidebarOpen, setMobileBarOpen] = React.useState(false);
   const content = (
     <React.Fragment>
-      <LogoBar />
-      <Sidebar routes={Object.keys(routes.main.subRoutes).map(r => routes.main.subRoutes[r])} />
+      <LogoBar onBurger={() => setMobileBarOpen(true)} />
+      <Sidebar
+        open={mobileSidebarOpen}
+        close={() => setMobileBarOpen(false)}
+        routes={Object.keys(routes.main.subRoutes).map(r => routes.main.subRoutes[r])}
+      />
       {!isMobile ? <div className="App_inner">{children}</div> : children}
     </React.Fragment>
   );

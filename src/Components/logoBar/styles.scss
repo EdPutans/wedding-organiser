@@ -18,18 +18,28 @@
 }
 
 .MobileLogoBar{
-  position: fixed;
-  top: 0;
-  left: 50%;
   background-color: $white;
-  transform: translateX(-50%);
   border: 3px solid $copper;
-  border-radius: 0 0  30px 30px ;
+  border-radius: 0 0 30px 30px;
+  &_container{
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  &_icon{
+    position: absolute;
+    left: 8px;
+    top: 8px
+  }
   &_text{
     color: $copper;
     text-align: center;
     font-family: 'Fancy';
-    font-size: 40px;
+    font-size: 30px;
     padding: 8px 60px;
   }
 }

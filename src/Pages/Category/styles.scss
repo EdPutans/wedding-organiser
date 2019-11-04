@@ -1,8 +1,32 @@
 
 @import '../../colors.scss';
-@import '../Main/styles.scss';
 
 .Category{
- 
+  background-color: $blackish;
+  display: flex;
+  flex-direction: column;
+  margin: 50px 32px;
+
+  &_column{
+    flex: 1;
+    min-width: 200px;
+    flex-direction: column;
+    &_container{
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      @include respond-to($phone){
+        margin: 0 8px;
+        padding: 50px 0;
+      }
+    }
+  }
+  &_title{
+    text-align: center;
+    padding: 16px;
+    color: white;
+    font-size: 30px;
+    font-family: "Fancy";
+  }
 }
 

@@ -36,8 +36,11 @@ const listItems = {
 
 const Category = ({ history }) => (
   <div className="Category">
-    <div className="Category_column"></div>
-    <div className="Category_column"></div>
+    <p className="Category_title">Clothes</p>
+    <div className="Category_column_container">
+      <div className="Category_column"></div>
+      <div className="Category_column"></div>
+    </div>
   </div>
 );
 

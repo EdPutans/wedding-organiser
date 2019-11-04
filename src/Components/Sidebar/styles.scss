@@ -9,18 +9,32 @@
   z-index: 14;
   display: flex;
   flex-direction: row;
-  height: 85%;
-  margin: 16px 0;
+  height: 100%;
+  @include respond-to($desktop, $tablet){
+    height: 85%;
+    margin: 16px 0;
+  }
   &_unlocker{
     width: 2px;
     background-color: $copper;
-    height: 100%;
+    flex: 1;
     &_container{
-      height: 100%;
       width: 20px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
     }
+  }
+  &_arrow{
+    $size: 30px; 
+    width: $size;
+    height: $size;
+    border-radius: $size;
+    background-color: $white;
+    border: 2px solid $copper;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &_link{
     font-size: 20px;
@@ -29,10 +43,10 @@
     color: $copper;
     &_container{
       overflow-y: scroll;
-
       flex: 1;
       display: flex;
       flex-direction: column;
     }
   }
 }
+

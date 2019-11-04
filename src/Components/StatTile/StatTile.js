@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import './styles.scss';
+import Subtitle from '../Subtitle/Subtitle';
 
 const StatTile = ({ title, value, borderColor, backgroundColor, textColor }) => {
   return (
@@ -11,12 +12,12 @@ const StatTile = ({ title, value, borderColor, backgroundColor, textColor }) => 
         borderColor: borderColor || backgroundColor,
       }}
     >
-      <h2 className="StatTile_title Fancy" style={{ color: textColor }}>
+      <Subtitle className="StatTile_title" style={{ color: textColor }}>
         {title}
-      </h2>
-      <h3 className="StatTile_value Fancy" style={{ color: textColor }}>
+      </Subtitle>
+      <Subtitle className="StatTile_value" style={{ color: textColor }}>
         {value}
-      </h3>
+      </Subtitle>
     </div>
   );
 };

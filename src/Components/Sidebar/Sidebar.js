@@ -5,56 +5,44 @@ import Drawer from '@material-ui/core/Drawer';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getIsMobile } from '../../redux/mainPage/selectors';
+import ClickableIcon from '../ClickableIcon/ClickableIcon';
+import colors from '../../colors.scss';
 
-const MobileSidebar = ({ routes }) => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <Drawer variant="temporary" anchor="left" open={open} onClose={() => setOpen(false)}>
-      <div className="Sidebar">
-        <div className="Sidebar_link_container">
-          {routes.map(r => (
-            <NavLink className="Sidebar_link" to={r.path}>
-              {r.buttonText}
-            </NavLink>
-          ))}
-        </div>
-        <div className="Sidebar_unlocker_container">
-          <div className="Sidebar_unlocker" />
-        </div>
-      </div>
-    </Drawer>
-  );
-};
-
-const Sidebar = ({ routes }) => {
-  return (
+const ConditionalSidebar = ({ isMobile, routes, open, close }) => {
+  const sidebar = (
     <div className="Sidebar">
       <div className="Sidebar_link_container">
         {routes.map(r => (
-          <NavLink className="Sidebar_link" to={r.path}>
+          <NavLink key={r.path} className="Sidebar_link" to={r.path}>
             {r.buttonText}
           </NavLink>
         ))}
       </div>
       <div className="Sidebar_unlocker_container">
         <div className="Sidebar_unlocker" />
+        {isMobile && (
+          <React.Fragment>
+            <div className="Sidebar_arrow">
+              <ClickableIcon onClick={close} icon="chevron" rotate={180} color={colors.copper} />
+            </div>
+            <div className="Sidebar_unlocker" />
+          </React.Fragment>
+        )}
       </div>
     </div>
   );
+
+  return !isMobile ? (
+    sidebar
+  ) : (
+    <Drawer variant="temporary" anchor="left" open={open} onClose={() => close()}>
+      {sidebar}
+    </Drawer>
+  );
 };
 
-const ConditionalSidebar = ({ isMobile, routes }) =>
-  !isMobile ? <Sidebar routes={routes} /> : <MobileSidebar routes={routes} />;
-
-Sidebar.propTypes = {
-  routes: PropTypes.shape({}).isRequired,
-};
-MobileSidebar.propTypes = {
-  routes: PropTypes.shape({}).isRequired,
-};
 ConditionalSidebar.propTypes = {
-  routes: PropTypes.shape({}).isRequired,
+  routes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   isMobile: PropTypes.bool.isRequired,
 };
 

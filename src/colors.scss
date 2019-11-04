@@ -11,7 +11,7 @@ $pink: #FBE9E7;
 $copper: #C8B7B5;
 $secondaryPink: #EFE1E3;
 
-$sidebarWidth: 250px;
+$sidebarWidth: 200px;
 
 :export{
   sidebarWidth: $sidebarWidth;
@@ -25,4 +25,23 @@ $sidebarWidth: 250px;
   copper: $copper;
   pink: $pink;
   blackish: $blackish;
+}
+
+$phone: 'screen and (max-width: 766px)';
+$tablet: 'screen and (min-width: 767px) and (max-width: 1024px)';
+$desktop: 'screen and (min-width: 1025px)';
+
+@mixin respond-to($medias...) {
+  @each $media in $medias {
+    @media only #{$media} {
+      @content;
+    }
+  }
+}
+
+
+:export {
+  phone: $phone;
+  tablet: $tablet;
+  desktop: $desktop;
 }

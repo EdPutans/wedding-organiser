@@ -5,17 +5,17 @@
   margin: 8px;
   padding: 16px 32px;
   min-width: 200px;
-  border-radius: 30px;
+  border-radius: 16px;
   border: 1px solid;
   min-height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   &_title{
-    font-size: 30px;
+    font-size: 20px;
   }
   &_value{
-    font-size: 30px;
+    font-size: 20px;
     text-align: right;
   }
 }

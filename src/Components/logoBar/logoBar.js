@@ -1,17 +1,24 @@
 import React from 'react';
 import './styles.scss';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getIsMobile } from '../../redux/mainPage/selectors';
+import ClickableDiv from '../ClickableDiv/ClickableDiv';
+import { routes } from '../../routes';
+import ClickableIcon from '../ClickableIcon/ClickableIcon';
 
-const LogoBar = ({ isMobile }) => {
+const LogoBar = ({ isMobile, history, onBurger }) => {
   return !isMobile ? (
-    <div className="LogoBar">
-      <div className="LogoBar_logoText">Happily Ever After</div>
-    </div>
+    <ClickableDiv className="LogoBar" onClick={() => history.push(routes.main.path)}>
+      <p className="LogoBar_logoText">Happily Ever After</p>
+    </ClickableDiv>
   ) : (
-    <div className="MobileLogoBar">
-      <p className="MobileLogoBar_text">HEA</p>
+    <div className="MobileLogoBar_container">
+      <ClickableIcon onClick={() => onBurger()} icon="menu" className="MobileLogoBar_icon" />
+      <ClickableDiv className="MobileLogoBar" onClick={() => history.push(routes.main.path)}>
+        <p className="MobileLogoBar_text">HEA</p>
+      </ClickableDiv>
     </div>
   );
 };
@@ -23,4 +30,4 @@ LogoBar.propTypes = {
 const mapStateToProps = state => ({
   isMobile: getIsMobile(state),
 });
-export default connect(mapStateToProps)(LogoBar);
+export default withRouter(connect(mapStateToProps)(LogoBar));
