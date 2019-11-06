@@ -5,7 +5,7 @@ import { Input, Button } from '@material-ui/core';
 import { getLink } from '../../misc/shared';
 import placeholderImage from '../../Components/temp/placeholder.jpg';
 
-const hardcodedInfo = {
+export const hardcodedInfo = {
   items: [
     {
       id: 1,

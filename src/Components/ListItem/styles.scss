@@ -1,0 +1,46 @@
+@import '../../colors.scss';
+
+.ListItem{
+  margin:16px;
+  border: 2px solid $copper;
+  border-radius: 10px;
+  padding: 16px;
+  min-height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  @include respond-to($desktop, $tablet){
+    width: 200px;
+  }
+  @include respond-to($phone){
+    flex: 1;
+    min-width: 200px;
+
+  }
+
+  &_topPanel{
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    &_iconCircle{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $pink;
+      height: 30px;
+      width: 30px;
+      border-radius: 30px;
+      margin: 0 4px;
+      &_double{
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+
+
+  &_image{
+    max-width: 80%;
+    max-height: 100px;
+  }
+}

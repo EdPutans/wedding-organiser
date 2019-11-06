@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './styles.scss';
 import { connect } from 'react-redux';
 import Drawer from '@material-ui/core/Drawer';
@@ -35,7 +35,7 @@ const ConditionalSidebar = ({ isMobile, routes, open, close }) => {
   return !isMobile ? (
     sidebar
   ) : (
-    <Drawer variant="temporary" anchor="left" open={open} onClose={() => close()}>
+    <Drawer open={open} onClose={() => close()}>
       {sidebar}
     </Drawer>
   );

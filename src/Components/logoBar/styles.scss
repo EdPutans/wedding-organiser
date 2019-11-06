@@ -9,6 +9,9 @@
   z-index: 9;
   display: flex;
   align-items: center;
+  @include respond-to($desktop, $tablet){
+    background-color: $white;
+  }
   &_logoText{
     padding-left: 24px;
     color: $copper;

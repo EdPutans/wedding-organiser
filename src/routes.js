@@ -4,7 +4,7 @@ import React from 'react';
 import Main from './Pages/Main/Main';
 import UnderConstruction from './Pages/UnderConstruction';
 import Category from './Pages/Category/Category';
-import CategoryList from './Pages/CategoryList/CategoryList';
+import ItemList from './Pages/ItemList/ItemList';
 
 export const routes = {
   main: {
@@ -22,7 +22,7 @@ export const routes = {
           shoes: {
             path: '/shoes',
             buttonText: 'Shoes',
-            component: () => <CategoryList entity="shoes" />,
+            component: () => <ItemList entity="shoes" />,
           },
         },
       },

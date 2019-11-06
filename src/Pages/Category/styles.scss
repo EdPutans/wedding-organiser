@@ -5,28 +5,55 @@
   background-color: $blackish;
   display: flex;
   flex-direction: column;
-  margin: 50px 32px;
-
+  margin: 50px 15px;
   &_column{
     flex: 1;
-    min-width: 200px;
+    min-width: 250px;
+    display: flex;
     flex-direction: column;
+    padding: 24px 0;
     &_container{
       flex: 1;
-      display: flex;
       flex-wrap: wrap;
+
+      display: flex;
+      justify-content: center;
+      text-align: center;
       @include respond-to($phone){
         margin: 0 8px;
         padding: 50px 0;
       }
     }
+    &_content{
+      padding: 24px;
+      @include respond-to($phone){
+        padding: 8px;
+      }
+
+      &_left{
+        @extend .Category_column_content;
+        @include respond-to($desktop, $tablet){
+          border-right: 1px solid $grey;
+        }
+      }
+    }
+  }
+  &_item{
+    color: $white;
+    flex: 1;
+    text-align: left;
+    &_row{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      border-bottom: 1px solid #5f5f5f;
+    }
   }
   &_title{
     text-align: center;
     padding: 16px;
-    color: white;
-    font-size: 30px;
-    font-family: "Fancy";
   }
 }
 

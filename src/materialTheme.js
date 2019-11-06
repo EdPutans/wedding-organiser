@@ -6,8 +6,14 @@ export default createMuiTheme({
     fontSize: 12,
   },
   palette: {
-    primary: { main: colors.pink },
+    primary: { main: colors.copper },
     secondary: { main: colors.grey },
   },
-  overrides: {},
+  overrides: {
+    MuiCheckbox: {
+      root: {
+        color: colors.copper,
+      },
+    },
+  },
 });
