@@ -13,7 +13,7 @@ const ConditionalSidebar = ({ isMobile, routes, open, close }) => {
     <div className="Sidebar">
       <div className="Sidebar_link_container">
         {routes.map(r => (
-          <NavLink key={r.path} className="Sidebar_link" to={r.path}>
+          <NavLink key={r.path} className="Sidebar_link" to={r.path} onClick={() => close()}>
             {r.buttonText}
           </NavLink>
         ))}
@@ -44,6 +44,8 @@ const ConditionalSidebar = ({ isMobile, routes, open, close }) => {
 ConditionalSidebar.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   isMobile: PropTypes.bool.isRequired,
+  open: PropTypes.func.isRequired,
+  close: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

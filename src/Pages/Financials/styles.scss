@@ -1,0 +1,39 @@
+@import '../../colors.scss';
+
+.Financials{
+  &_title{
+    margin: 16px auto;
+    text-align: center;
+    color: $blackish !important;
+  }
+  &_subtitle{
+    flex: 1;
+    padding: 8px;
+    color: $copper !important;
+    min-width: 150px;
+    &_container{
+      flex-wrap: wrap;
+      display: flex;
+      text-align: center;
+      background-color: $blackish;
+      border-radius: 10px;
+      margin: 0 8px;
+      padding: 16px;
+    }
+  }
+  
+  display: flex;
+  flex-direction: column;
+  &_row{
+    flex: 1;
+    height: 50px;
+    border-bottom: 1px solid $grey;
+    margin: 16px;
+    padding: 16px 0;
+    display: flex;
+    &_text{
+      flex: 1;
+      color: $blackish;
+    }
+  }
+}

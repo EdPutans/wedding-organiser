@@ -1,39 +1,38 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import './styles.scss';
-import ClickableDiv from '../ClickableDiv/ClickableDiv';
+import placeholder from '../temp/placeholder.jpg';
 import ClickableIcon from '../ClickableIcon/ClickableIcon';
+import colors from '../../colors.scss';
+
+const testtext = `<div>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at htthdjkghdfkg fhgdkghnd also at http://stackoverflow.com  </div></div></div></div></div></div>`;
+
+function urlify(text) {
+  // TODO: sanitize this shit  https://dev.to/jam3/how-to-prevent-xss-attacks-when-using-dangerouslysetinnerhtml-in-react-1464
+  // /(([a-z]+:\/\/)?(([a-z0-9\-]+\.)+([a-z]{2}|aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel|local|internal))(:[0-9]{1,5})?(\/[a-z0-9_\-\.~]+)*(\/([a-z0-9_\-\.]*)(\?[a-z0-9+_\-\.%=&amp;]*)?)?(#[a-zA-Z0-9!$&'()*+.=-_~:@/?]*)?)(\s+|$)/gi
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  return text.replace(urlRegex, function(url) {
+    return `<a href="${url}">${url}</a>`;
+  });
+}
 
 const ListItem = ({ item }) => {
-  const [uselessState, setUselessState] = React.useState({ fav: false });
-  const [editing, setEditing] = React.useState(false);
-
   return (
     <div className="ListItem">
-      <div className="ListItem_topPanel">
-        <div className="ListItem_topPanel_iconCircle">
-          <ClickableIcon
-            style={{ marginTop: '3px' }}
-            onClick={() => setUselessState({ ...uselessState, fav: !uselessState.fav })}
-            icon={uselessState.fav ? 'fav_on' : 'fav_off'}
-          />
-        </div>
-        <div className="ListItem_topPanel_iconCircle_double">
-          {editing && (
-            <div className="ListItem_topPanel_iconCircle">
-              <ClickableIcon icon="decline" onClick={() => setEditing(!editing)} />
-            </div>
-          )}
-
-          <div className="ListItem_topPanel_iconCircle">
-            <ClickableIcon
-              icon={editing ? 'confirm' : 'edit'}
-              onClick={() => setEditing(!editing)}
-            />
-          </div>
-        </div>
+      <ClickableIcon
+        size={30}
+        className="ListItem_buttons_fav"
+        color={item.isFav ? colors.pink : 'lightgrey'}
+        icon="fav_on"
+      />
+      <div className="ListItem_image" style={{ background: `url(${item.img})` }}></div>
+      <div className="ListItem_description">
+        <div
+          className="ListItem_description_text"
+          dangerouslySetInnerHTML={{ __html: urlify(testtext) }}
+        />
+        <ClickableIcon className="ListItem_buttons_edit" color={colors.blackish} icon="edit" />
       </div>
-      <img src={item.img} className="ListItem_image" />
     </div>
   );
 };
@@ -60,5 +59,4 @@ ListItem.defaultProps = {
     text: '',
   },
 };
-
 export default ListItem;

@@ -1,46 +1,55 @@
 @import '../../colors.scss';
 
 .ListItem{
-  margin:16px;
-  border: 2px solid $copper;
-  border-radius: 10px;
-  padding: 16px;
-  min-height: 400px;
+  flex: 1;
+  border-bottom: 1px solid $copper;
+  padding: 16px 0;
   display: flex;
+  height: 200px;
   flex-wrap: wrap;
-  flex-direction: column;
-  @include respond-to($desktop, $tablet){
-    width: 200px;
-  }
-  @include respond-to($phone){
+  position: relative;
+
+  &_description{
+    font-size: 12px;
+    margin: 0 16px;
+    padding: 8px 32px 8px 16px;
+    border-radius: 8px;
+    background-color: $pink;
+    overflow-y: auto;
     flex: 1;
+    max-height: calc(100% - 16px);
     min-width: 200px;
-
-  }
-
-  &_topPanel{
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
-    &_iconCircle{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $pink;
-      height: 30px;
-      width: 30px;
-      border-radius: 30px;
-      margin: 0 4px;
-      &_double{
-        display: flex;
-        flex-direction: row;
-      }
+    &_text{
+      color: $blackish;
     }
   }
 
-
   &_image{
-    max-width: 80%;
-    max-height: 100px;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    width: 200px;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    @include respond-to($phone){
+      margin: 16px;
+      min-width: 200px;
+    }
+  }
+
+  &_buttons{
+    &_edit{
+      position: absolute;
+      z-index: 3;
+      right: 10px;
+      top: 10px;
+    }
+    &_fav{
+      position: absolute;
+      z-index: 3;
+      left: 10px;
+      top: 10px;
+    }
   }
 }

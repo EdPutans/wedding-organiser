@@ -5,6 +5,7 @@ import Main from './Pages/Main/Main';
 import UnderConstruction from './Pages/UnderConstruction';
 import Category from './Pages/Category/Category';
 import ItemList from './Pages/ItemList/ItemList';
+import Financials from './Pages/Financials/Financials';
 
 export const routes = {
   main: {
@@ -22,7 +23,7 @@ export const routes = {
           shoes: {
             path: '/shoes',
             buttonText: 'Shoes',
-            component: () => <ItemList entity="shoes" />,
+            component: () => <ItemList title="Shoes" />,
           },
         },
       },
@@ -84,7 +85,7 @@ export const routes = {
       },
       finances: {
         path: '/finances',
-        component: null,
+        component: Financials,
         buttonText: 'Finances',
         imageButton: '',
         props: {},

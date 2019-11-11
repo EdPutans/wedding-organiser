@@ -1,104 +1,19 @@
 @import '../../colors.scss';
 
-// .CategoryList{
-//   flex: 1;
-//   display: flex;
-//   flex-direction: column;
-//   background-color: $lightGrey;
-//   align-items: center;
-//   &_outter{
-//     max-width: 900px;
-//     min-width: 360px;
-//     width: 100%;
-//   }
-//   &_specs{
-//     min-height: 200px;
-//     padding: 16px 100px;
-//     background-color: #80DEEA;
-//     display: flex;
-//     flex-direction: column;
-//     &_text{
-//       margin: 16px 0px;
-//       font-style: italic;
-//       text-indent: 48px;
-//       color: $white;
-//     }
-//   }
-//   &_specRow{
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     min-height: 200px;
-//     margin: 16px 0px;
-//     background-color: white;
-//     padding: 16px;
-//     transition: all 0.3s;
-//     &:hover{
-//       box-shadow: 0px 0px 4px 2px $slightlyDarken;
-//     }
-//     & div{
-//       min-width: 250px;
-//       flex: 1;
-//     }
-//     &_text{
-//       padding: 8px;
-//       flex: 1;
-//       &_input{
-//         & textarea{
-//           color: $darkGrey;
-//         }
-//         padding: 8px !important;
-//         border: 1px solid $lightGrey;
-//         border-radius: 4px;
-//         &:focus{
-//           border: 1px solid $darkGrey !important;
-//         }
-//       }
-//       &_saveButton{
-//         margin-right: 4px !important;
-//         &_container{
-//           padding: 8px 0;
-//           display: flex;
-//           flex-direction: row;
-//         }
-//         flex: 1;
-//         background-color: $gold !important;
-//         color: white !important;
-//       }
-//     }
-//     &_img {
-//       height: 180px;
-//       &_container{
-//         flex: 1;
-//         margin: 0px 16px;
-//         display: flex;
-//         align-items: center;
-//       }
-//     }
-//     &_links {
-//       padding: 8px;
-//       display: flex;
-//       flex-direction: column;
-//       &_link{
-//         &_container{
-//           margin: 4px;
-//           display: flex;
-//           flex-direction: row;
-//         }
-//         &:hover{
-//           text-decoration: underline;
-//         }
-//       }
-//     }
-//   }
-// }
-
 
 .ItemList{
+  margin: auto;
   flex: 1;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 16px;
   flex-wrap: wrap;
-  max-width: 900px;
+  max-width: 700px;
+  width: calc(100% - 32px);
+  justify-content: center;
+  &_title{
+    margin: auto;
+    padding: 16px;
+    color: $blackish !important;
+  }
 }
