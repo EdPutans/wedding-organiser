@@ -31,8 +31,7 @@ export const hardcodedInfo = {
       id: 2,
       isFav: false,
       links: [{ id: 5, text: 'http://www.google.com/dsdsgfdhfgdgkfdhgjkfdhgfdkgh   ggjfdgkfd' }],
-      img:
-        'https://www.wed2b.co.uk/media/catalog/product/cache/c687aa7517cf01e65c009f6943c2b1e9/r/o/rochelle_wedding_dress_front_viva_bride.jpg',
+      img: 'https://siradpion.com/wp-content/uploads/2019/08/ball-gown-wedding-dresses.jpg',
       text: 'A on sovsem forshmak',
     },
     {

@@ -1,9 +1,11 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import './styles.scss';
-import placeholder from '../temp/placeholder.jpg';
+import { Paper } from '@material-ui/core';
+import { connect } from 'react-redux';
 import ClickableIcon from '../ClickableIcon/ClickableIcon';
 import colors from '../../colors.scss';
+import { getIsMobile } from '../../redux/mainPage/selectors';
 
 const testtext = `<div>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at htthdjkghdfkg fhgdkghnd also at http://stackoverflow.com  </div></div></div></div></div></div>`;
 
@@ -16,28 +18,59 @@ function urlify(text) {
   });
 }
 
-const ListItem = ({ item }) => {
-  return (
-    <div className="ListItem">
+const ListItem = ({ item, setEditing, isMobile }) => {
+  const [hovering, setHovering] = React.useState(false);
+
+  const mobileIcons = () => (
+    <>
       <ClickableIcon
         size={30}
-        className="ListItem_buttons_fav"
         color={item.isFav ? colors.pink : 'lightgrey'}
         icon="fav_on"
+        className="ListItem_mobile_fav"
       />
-      <div className="ListItem_image" style={{ background: `url(${item.img})` }}></div>
-      <div className="ListItem_description">
+      <ClickableIcon
+        size={30}
+        onClick={setEditing}
+        color={colors.blackish}
+        icon="edit"
+        className="ListItem_mobile_edit"
+      />
+    </>
+  );
+
+  return (
+    <Paper
+      className="ListItem"
+      onMouseLeave={() => setHovering(false)}
+      onMouseEnter={() => setHovering(true)}
+    >
+      {isMobile ? (
+        mobileIcons()
+      ) : (
+        <ClickableIcon size={30} color={item.isFav ? colors.pink : 'lightgrey'} icon="fav_on" />
+      )}
+      <div className="ListItem_image" style={{ background: `url(${item.img})` }} />
+
+      <div className="ListItem_description_container">
+        <h3 className="ListItem_description_title">Item title</h3>
         <div
           className="ListItem_description_text"
           dangerouslySetInnerHTML={{ __html: urlify(testtext) }}
         />
-        <ClickableIcon className="ListItem_buttons_edit" color={colors.blackish} icon="edit" />
       </div>
-    </div>
+      {!isMobile && (
+        <div className="ListItem_edit">
+          {hovering && <ClickableIcon onClick={setEditing} color={colors.blackish} icon="edit" />}
+        </div>
+      )}
+    </Paper>
   );
 };
 
 ListItem.propTypes = {
+  isMobile: PropTypes.bool.isRequired,
+  setEditing: PropTypes.func.isRequired,
   item: {
     id: PropTypes.number.isRequired,
     links: PropTypes.arrayOf(
@@ -59,4 +92,9 @@ ListItem.defaultProps = {
     text: '',
   },
 };
-export default ListItem;
+
+const mapDispatchToProps = dispatch => ({
+  isMobile: getIsMobile(dispatch),
+});
+
+export default connect(mapDispatchToProps)(ListItem);

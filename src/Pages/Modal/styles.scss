@@ -1,0 +1,16 @@
+@import '../../colors.scss';
+
+.Modal{
+  &_title{
+    color: $blackish !important;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  &_inner{
+    min-width: 300px;
+    min-height: 350px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -2,6 +2,7 @@
 @import '../../colors.scss';
 
 .Category{
+  flex: 1;
   background-color: $blackish;
   display: flex;
   flex-direction: column;

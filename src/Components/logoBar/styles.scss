@@ -4,7 +4,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   height: $logoBarSize;
   z-index: 9;
   display: flex;
@@ -13,9 +12,9 @@
     background-color: $white;
   }
   &_logoText{
-    padding-left: 24px;
+    padding-left: 8px;
     color: $copper;
-    font-size: calc(#{$logoBarSize} - 16px);
+    font-size: 24px;
     font-family: "Fancy";
   }
 }
