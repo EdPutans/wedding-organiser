@@ -7,11 +7,17 @@ import PropTypes from 'prop-types';
 import { getIsMobile } from '../../redux/mainPage/selectors';
 import ClickableIcon from '../ClickableIcon/ClickableIcon';
 import colors from '../../colors.scss';
+import { routes as rt } from '../../routes';
 
 const ConditionalSidebar = ({ isMobile, routes, open, close }) => {
   const sidebar = (
     <div className="Sidebar">
       <div className="Sidebar_link_container">
+        {isMobile && (
+          <NavLink className="Sidebar_link" to={rt.main.path} onClick={() => close()}>
+            Home
+          </NavLink>
+        )}
         {routes.map(r => (
           <NavLink key={r.path} className="Sidebar_link" to={r.path} onClick={() => close()}>
             {r.buttonText}
@@ -21,12 +27,12 @@ const ConditionalSidebar = ({ isMobile, routes, open, close }) => {
       <div className="Sidebar_unlocker_container">
         <div className="Sidebar_unlocker" />
         {isMobile && (
-          <React.Fragment>
+          <>
             <div className="Sidebar_arrow">
               <ClickableIcon onClick={close} icon="chevron" rotate={180} color={colors.copper} />
             </div>
             <div className="Sidebar_unlocker" />
-          </React.Fragment>
+          </>
         )}
       </div>
     </div>

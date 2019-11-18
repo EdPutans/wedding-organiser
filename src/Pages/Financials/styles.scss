@@ -1,6 +1,15 @@
 @import '../../colors.scss';
 
 .Financials{
+  justify-self: center;
+  border: 1px solid $pink;
+  flex: 1;
+  &_outerContainer{
+    max-width: 800px;
+    flex-grow: 1;;
+    display: flex;
+    flex-direction: column;
+  }
   &_title{
     margin: 16px auto;
     text-align: center;
@@ -9,31 +18,48 @@
   &_subtitle{
     flex: 1;
     padding: 8px;
-    color: $copper !important;
+    color: $pink !important;
     min-width: 150px;
     &_container{
       flex-wrap: wrap;
       display: flex;
       text-align: center;
       background-color: $blackish;
-      border-radius: 10px;
-      margin: 0 8px;
+      border-radius: 4px;
       padding: 16px;
+      margin: 8px 0;
     }
   }
-  
-  display: flex;
-  flex-direction: column;
+  &_scrollableView{
+  flex: 1;
+   overflow-y:scroll; 
+  }
   &_row{
-    flex: 1;
     height: 50px;
     border-bottom: 1px solid $grey;
-    margin: 16px;
-    padding: 16px 0;
+    align-items: center;
+    margin: 0 16px;
+    padding: 4px 0;
     display: flex;
     &_text{
       flex: 1;
+      text-align: center;
       color: $blackish;
+      &_bold{
+        @extend .Financials_row_text;
+        font-weight: 600;
+      }
     }
+  }
+  &_filters{
+    padding: 8px;
+    border: 1px solid $grey;
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  &_filter{
+    min-width: 140px !important;
+    margin: 8px;
   }
 }

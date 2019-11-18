@@ -9,37 +9,35 @@ import colors from '../../colors.scss';
 
 const ContentWrapper = ({ children, isMobile }) => {
   const [mobileSidebarOpen, setMobileBarOpen] = React.useState(false);
+
   const content = (
     <>
-      <LogoBar />
+      {!isMobile && <LogoBar />}
       <Sidebar
         open={mobileSidebarOpen}
         close={() => setMobileBarOpen(false)}
         routes={Object.keys(routes.main.subRoutes).map(r => routes.main.subRoutes[r])}
       />
-      {!isMobile ? (
-        <div className="App_inner">{children}</div>
-      ) : (
-        <div className="App_mobile">
-          <div className="Sidebar_unlocker_container">
-            <div className="Sidebar_unlocker" />
-            <div className="Sidebar_arrow">
-              <ClickableIcon
-                onClick={() => setMobileBarOpen(true)}
-                icon="chevron"
-                color={colors.copper}
-              />
-            </div>
-            <div className="Sidebar_unlocker" />
-          </div>
-          <div className="App_mobile_content">
-            <div className="App_mobile_content_pad">{children}</div>
-          </div>
-        </div>
-      )}
+      {!isMobile ? <div className="App_inner">{children}</div> : children}
     </>
   );
-  return !isMobile ? <div className="App">{content}</div> : content;
+
+  return !isMobile ? (
+    <div className="App">{content}</div>
+  ) : (
+    <>
+      <div style={{ position: 'fixed', left: 0, top: 0, zIndex: 9 }}>
+        <div className="Sidebar_arrow">
+          <ClickableIcon
+            onClick={() => setMobileBarOpen(true)}
+            icon="chevron"
+            color={colors.copper}
+          />
+        </div>
+      </div>
+      <div style={{ margin: '50px 0' }}>{content}</div>
+    </>
+  );
 };
 
 ContentWrapper.propTypes = {

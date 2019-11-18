@@ -1,0 +1,21 @@
+@import '../../colors.scss';
+
+.FinancialsForm{
+  &_input{
+    margin: 16px 0;
+  }
+  &_buttons{
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    &_button{
+      background-color: $copper !important;
+      color: white !important;
+      margin-right: 8px !important;
+    }
+    
+  }
+  &_sec{
+    color: $grey !important;
+  }
+}

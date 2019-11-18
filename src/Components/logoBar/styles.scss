@@ -2,6 +2,7 @@
 
 .LogoBar{
   position: fixed;
+
   top: 0;
   left: 0;
   height: $logoBarSize;
@@ -16,29 +17,5 @@
     color: $copper;
     font-size: 24px;
     font-family: "Fancy";
-  }
-}
-
-.MobileLogoBar{
-  background-color: $white;
-  border: 3px solid $copper;
-  border-radius: 0 0 30px 30px;
-  &_container{
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-  }
-  &_icon{
-    position: absolute;
-    left: 8px;
-    top: 8px
-  }
-  &_text{
-    color: $copper;
-    text-align: center;
-    font-family: 'Fancy';
-    font-size: 15px;
-    padding: 8px 30px;
   }
 }
