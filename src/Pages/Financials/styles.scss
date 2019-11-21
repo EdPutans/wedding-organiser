@@ -15,6 +15,10 @@
     text-align: center;
     color: $blackish !important;
   }
+  &_header{
+    height: 30px !important;
+    font-size: 12px;
+  }
   &_subtitle{
     flex: 1;
     padding: 8px;
@@ -39,11 +43,12 @@
     border-bottom: 1px solid $grey;
     align-items: center;
     margin: 0 16px;
-    padding: 4px 0;
+    padding: 4px 36px;
     display: flex;
+    justify-content: space-between;
+
     &_text{
-      flex: 1;
-      text-align: center;
+      // flex: 1;
       color: $blackish;
       &_bold{
         @extend .Financials_row_text;
@@ -51,12 +56,15 @@
       }
     }
   }
+  &_category{
+    border-bottom: 1px solid $blackish;
+    font-weight: 500;
+  }
   &_filters{
     padding: 8px;
-    border: 1px solid $grey;
-    margin: 8px 0;
+    margin: 8px 0 16px 0;
     display: flex;
-    justify-content: space-between;
+    border-radius: 8px;
   }
   &_filter{
     min-width: 140px !important;

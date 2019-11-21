@@ -2,15 +2,13 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import './styles.scss';
 import { Paper } from '@material-ui/core';
+// eslint-disable-next-line import/no-cycle
+import { tableHeader } from './Financials';
 
 const ListTab = ({ itemsToDisplay }) => {
   return (
     <Paper className="Financials">
-      <div className="Financials_row">
-        <div className="Financials_row_text">Item</div>
-        <div className="Financials_row_text">Category</div>
-        <div className="Financials_row_text">Sum</div>
-      </div>
+      {tableHeader}
       <div className="Financials_scrollableView">
         {itemsToDisplay.map(stat => (
           <div className="Financials_row">

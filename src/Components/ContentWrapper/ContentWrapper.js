@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Sidebar from '../Sidebar/Sidebar';
 import LogoBar from '../logoBar/logoBar';
-import { routes } from '../../routes';
+import { routes, permaRoutes } from '../../routes';
 import './app.scss';
 import ClickableIcon from '../ClickableIcon/ClickableIcon';
 import colors from '../../colors.scss';
@@ -17,6 +17,7 @@ const ContentWrapper = ({ children, isMobile }) => {
         open={mobileSidebarOpen}
         close={() => setMobileBarOpen(false)}
         routes={Object.keys(routes.main.subRoutes).map(r => routes.main.subRoutes[r])}
+        permaRoutes={Object.keys(permaRoutes).map(r => permaRoutes[r])}
       />
       {!isMobile ? <div className="App_inner">{children}</div> : children}
     </>

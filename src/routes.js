@@ -83,13 +83,6 @@ export const routes = {
         imageButton: '',
         props: {},
       },
-      finances: {
-        path: '/finances',
-        component: Financials,
-        buttonText: 'Finances',
-        imageButton: '',
-        props: {},
-      },
       honeymoon: {
         path: '/honeymoon',
         component: null,
@@ -133,6 +126,23 @@ export const routes = {
         props: {},
       },
     },
+  },
+};
+
+export const permaRoutes = {
+  finances: {
+    path: '/finances',
+    component: Financials,
+    buttonText: 'Finances',
+    imageButton: '',
+    props: {},
+  },
+  settings: {
+    path: '/settings',
+    component: null,
+    buttonText: 'Finances',
+    imageButton: '',
+    props: {},
   },
 };
 
