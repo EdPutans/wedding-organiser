@@ -47,11 +47,10 @@ export const publics = {
   },
 };
 
-export const recursivelyCreateRoutes = (routeList, resultArray) => {
-  Object.keys(routeList).forEach(route => {
+export const recursivelyCreateRoutes = routeList => {
+  return Object.keys(routeList).map(route => {
     const page = routeList[route];
-    console.log(page.path);
-    resultArray.push(
+    return (
       <Route
         key={page.path}
         exact
@@ -59,7 +58,7 @@ export const recursivelyCreateRoutes = (routeList, resultArray) => {
         render={browserProps =>
           page.component ? <page.component {...page.props} {...browserProps} /> : null
         }
-      />,
+      />
     );
   });
 };

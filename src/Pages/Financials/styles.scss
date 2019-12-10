@@ -35,8 +35,9 @@
     }
   }
   &_scrollableView{
-  flex: 1;
-   overflow-y:scroll; 
+    padding: 16px;
+    flex: 1;
+    overflow-y:scroll; 
   }
   &_row{
     height: 50px;
@@ -46,13 +47,18 @@
     padding: 4px 36px;
     display: flex;
     justify-content: space-between;
-
+    &_header{
+      margin: 0;
+      // replaces margin 8 + padding 16:
+      padding: 0 24px;
+      font-weight: 700;
+    }
     &_text{
       // flex: 1;
       color: $blackish;
       &_bold{
         @extend .Financials_row_text;
-        font-weight: 600;
+        font-weight: 500;
       }
     }
   }

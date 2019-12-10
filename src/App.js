@@ -14,10 +14,9 @@ import { getCategories } from './redux/categories/selectors';
 import ContentWrapper from './Components/ContentWrapper/ContentWrapper';
 import UnderConstruction from './Pages/UnderConstruction';
 
-const result = [];
 const App = ({ detectResize, isMobile, loggedIn, categories }) => {
-  recursivelyCreateRoutes(routes, result);
-  recursivelyCreateRoutes(categories, result);
+  recursivelyCreateRoutes(routes);
+  recursivelyCreateRoutes(categories);
 
   return (
     <React.Fragment>
@@ -28,7 +27,8 @@ const App = ({ detectResize, isMobile, loggedIn, categories }) => {
         <BrowserRouter>
           <Switch>
             <ContentWrapper isMobile={isMobile}>
-              {result}
+              {recursivelyCreateRoutes(routes)}
+              {recursivelyCreateRoutes(categories)}
               {/* // add a 404!! */}
             </ContentWrapper>
           </Switch>
