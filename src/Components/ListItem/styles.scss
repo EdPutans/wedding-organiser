@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   position: relative;
   margin: 8px 0;
-  border: 1px solid $pink;
+  border: 1px solid $copper;
   @include respond-to($phone){
     max-width: 300px;
     margin: 16px auto;

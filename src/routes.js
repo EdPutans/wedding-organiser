@@ -1,135 +1,19 @@
 import { Route } from 'react-router-dom';
 import React from 'react';
-// eslint-disable-next-line import/no-cycle
-import Main from './Pages/Main/Main';
+import Home from './Pages/Main/Main';
 import UnderConstruction from './Pages/UnderConstruction';
 import Category from './Pages/Category/Category';
 import ItemList from './Pages/ItemList/ItemList';
 import Financials from './Pages/Financials/Financials';
+import Settings from './Pages/Settings/Settings';
+import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
 
 export const routes = {
-  main: {
-    path: '',
-    component: Main,
-    props: {},
-    subRoutes: {
-      clothing: {
-        path: '/clothing',
-        component: Category,
-        buttonText: 'Clothing',
-        imageButton: '',
-        props: {},
-        subRoutes: {
-          shoes: {
-            path: '/shoes',
-            buttonText: 'Shoes',
-            component: () => <ItemList title="Shoes" />,
-          },
-        },
-      },
-      jewelry: {
-        path: '/jewelry',
-        component: null,
-        buttonText: 'Jewelry',
-        imageButton: '',
-        props: {},
-      },
-      appearance: {
-        path: '/appearance',
-        component: null,
-        buttonText: 'Appearance',
-        imageButton: '',
-        props: {},
-      },
-      transportation: {
-        path: '/transportation',
-        component: null,
-        buttonText: 'Transportation',
-        imageButton: '',
-        props: {},
-      },
-      venue: {
-        path: '/venue',
-        component: null,
-        buttonText: 'Venue',
-        imageButton: '',
-        props: {},
-      },
-      registryOffice: {
-        path: '/registry-office',
-        component: null,
-        buttonText: 'Registry Office',
-        imageButton: '',
-        props: {},
-      },
-      photographer: {
-        path: '/photographer',
-        component: null,
-        buttonText: 'Photographer',
-        imageButton: '',
-        props: {},
-      },
-      musicians: {
-        path: '/musicians',
-        component: null,
-        buttonText: 'Musicians',
-        imageButton: '',
-        props: {},
-      },
-      guestList: {
-        path: '/guest-list',
-        component: null,
-        buttonText: 'Guest List',
-        imageButton: '',
-        props: {},
-      },
-      honeymoon: {
-        path: '/honeymoon',
-        component: null,
-        buttonText: 'Honeymoon',
-        imageButton: '',
-        props: {},
-      },
-      invitations: {
-        path: '/invitations',
-        component: null,
-        buttonText: 'Invitations',
-        imageButton: '',
-        props: {},
-      },
-      flowers: {
-        path: '/flowers',
-        component: null,
-        buttonText: 'Flowers',
-        imageButton: '',
-        props: {},
-      },
-      decorations: {
-        path: '/decorations',
-        component: null,
-        buttonText: 'Decorations',
-        imageButton: '',
-        props: {},
-      },
-      guestGifts: {
-        path: '/guest-gifts',
-        component: null,
-        buttonText: 'Gifts for guests',
-        imageButton: '',
-        props: {},
-      },
-      alcohol: {
-        path: '/alcohol',
-        component: null,
-        buttonText: 'Alcohol',
-        imageButton: '',
-        props: {},
-      },
-    },
+  home: {
+    path: '/',
+    component: Home,
   },
-};
-
-export const permaRoutes = {
   finances: {
     path: '/finances',
     component: Financials,
@@ -139,40 +23,48 @@ export const permaRoutes = {
   },
   settings: {
     path: '/settings',
-    component: null,
-    buttonText: 'Finances',
+    component: Settings,
+    buttonText: 'Settings',
     imageButton: '',
     props: {},
   },
 };
 
-const recursivelyCreateRoutes = (routeList, subPathName) => {
-  return Object.keys(routeList).map(route => {
+export const publics = {
+  login: {
+    path: '/',
+    component: Login,
+    buttonText: 'Login',
+    imageButton: '',
+    props: {},
+  },
+  register: {
+    path: '/signup',
+    component: Register,
+    buttonText: 'Register',
+    imageButton: '',
+    props: {},
+  },
+};
+
+export const recursivelyCreateRoutes = (routeList, resultArray) => {
+  Object.keys(routeList).forEach(route => {
     const page = routeList[route];
-    const pathName = subPathName ? subPathName + page.path : page.path; // /yeet + /dab = /yeet/dab
-    if (page.subRoutes) {
-      recursivelyCreateRoutes(page.subRoutes, pathName);
-    }
-    return generatedRoutes.push(
+    console.log(page.path);
+    resultArray.push(
       <Route
-        key={pathName}
+        key={page.path}
         exact
-        path={pathName}
-        component={browserProps =>
-          page.component ? (
-            page.component({ ...page.props, ...browserProps })
-          ) : (
-            <UnderConstruction />
-          )
+        path={page.path}
+        render={browserProps =>
+          page.component ? <page.component {...page.props} {...browserProps} /> : null
         }
       />,
     );
   });
 };
 
-const generatedRoutes = [];
-recursivelyCreateRoutes(routes);
-// TO DO : Add 404 page
-// generatedRoutes.push(<Route render={FourOhFour} />);
+const publicRoutesArray = [];
+recursivelyCreateRoutes(publics, publicRoutesArray);
 
-export default () => generatedRoutes;
+export const PublicRoutes = () => publicRoutesArray;

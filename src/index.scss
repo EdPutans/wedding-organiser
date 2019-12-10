@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,8 +19,12 @@ p{
 }
 
 @font-face{
-  font-family: "Fancy";
+  font-family: "Modern";
   src:url("./misc/Modern_no_20.ttf");
 }
 
 
+@font-face {
+  font-family: "Fancy";
+  src: url("./misc/marchy.otf") format("opentype");
+}

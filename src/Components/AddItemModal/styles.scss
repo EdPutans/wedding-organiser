@@ -1,0 +1,18 @@
+@import '../../colors.scss';
+
+.AddItemModal{
+  &_radioContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &_input{
+    margin: 16px 0;
+  }
+  &_textarea{
+    margin: 16px 0;
+  }
+  &_button{
+    background-color: $copper !important;
+  }
+}

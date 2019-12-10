@@ -3,6 +3,7 @@
 .FinancialsForm{
   &_input{
     margin: 16px 0;
+    width: 100%;
   }
   &_buttons{
     height: 30px;
@@ -10,7 +11,7 @@
     justify-content: flex-end;
     &_button{
       background-color: $copper !important;
-      color: white !important;
+      color: $white !important;
       margin-right: 8px !important;
     }
   }

@@ -1,21 +1,32 @@
 @import '../../colors.scss';
 
 .LogoBar{
-  position: fixed;
-
-  top: 0;
-  left: 0;
-  height: $logoBarSize;
-  z-index: 9;
-  display: flex;
-  align-items: center;
-  @include respond-to($desktop, $tablet){
+  &_container{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: $logoBarSize;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: $white;
   }
   &_logoText{
-    padding-left: 8px;
+    margin-left: 16px;
+    @include respond-to($phone){
+      margin-left: 50px;
+    }
     color: $copper;
-    font-size: 24px;
+    font-size: 32px;
     font-family: "Fancy";
+  }
+  &_icon{
+    margin: 4px;
+    &_container{
+      display: flex;
+      padding: 0 16px 0 0;
+      align-items: center;
+    }
   }
 }

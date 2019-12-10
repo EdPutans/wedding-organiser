@@ -5,7 +5,7 @@ import { Paper } from '@material-ui/core';
 import { connect } from 'react-redux';
 import ClickableIcon from '../ClickableIcon/ClickableIcon';
 import colors from '../../colors.scss';
-import { getIsMobile } from '../../redux/mainPage/selectors';
+import { getIsMobile } from '../../redux/app/selectors';
 
 const testtext = `<div>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjv>Find me atwww.example.com agnfple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at httple.com agnfhdjkghdfkg fhgdkghnd also at htthdjkghdfkg fhgdkghnd also at http://stackoverflow.com  </div></div></div></div></div></div>`;
 
@@ -18,11 +18,11 @@ function urlify(text) {
   });
 }
 
-const ListItem = ({ item, setEditing, isMobile }) => {
+const ListItem = ({ item, onClickEdit, isMobile }) => {
   const [hovering, setHovering] = React.useState(false);
 
   const mobileIcons = () => (
-    <>
+    <React.Fragment>
       <ClickableIcon
         size={30}
         color={item.isFav ? colors.pink : 'lightgrey'}
@@ -31,12 +31,12 @@ const ListItem = ({ item, setEditing, isMobile }) => {
       />
       <ClickableIcon
         size={30}
-        onClick={setEditing}
+        onClick={onClickEdit}
         color={colors.blackish}
         icon="edit"
         className="ListItem_mobile_edit"
       />
-    </>
+    </React.Fragment>
   );
 
   return (
@@ -61,7 +61,7 @@ const ListItem = ({ item, setEditing, isMobile }) => {
       </div>
       {!isMobile && (
         <div className="ListItem_edit">
-          {hovering && <ClickableIcon onClick={setEditing} color={colors.blackish} icon="edit" />}
+          {hovering && <ClickableIcon onClick={onClickEdit} color={colors.blackish} icon="edit" />}
         </div>
       )}
     </Paper>
@@ -70,7 +70,7 @@ const ListItem = ({ item, setEditing, isMobile }) => {
 
 ListItem.propTypes = {
   isMobile: PropTypes.bool.isRequired,
-  setEditing: PropTypes.func.isRequired,
+  onClickEdit: PropTypes.func.isRequired,
   item: {
     id: PropTypes.number.isRequired,
     links: PropTypes.arrayOf(

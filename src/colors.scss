@@ -7,11 +7,9 @@ $lightRed: #ff6d6d;
 $darken: rgba(0, 0, 0, 0.5);
 $logoBarSize: 50px;
 $blackish: #444444;
-$pink: #FBE9E7;
-$copper: #C8B7B5;
-$secondaryPink: #EFE1E3;
+$copper: #fc9483;
 
-$sidebarWidth: 200px;
+$sidebarWidth: 260px;
 
 :export{
   sidebarWidth: $sidebarWidth;
@@ -21,9 +19,7 @@ $sidebarWidth: 200px;
   grey: $grey;
   white: $white;
   lightRed: $lightRed;
-  secondaryPink: $secondaryPink;
   copper: $copper;
-  pink: $pink;
   blackish: $blackish;
 }
 

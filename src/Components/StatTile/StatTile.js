@@ -15,7 +15,7 @@ const StatTile = ({ title, value, borderColor, backgroundColor, textColor }) => 
       <Subtitle className="StatTile_title" style={{ color: textColor }}>
         {title}
       </Subtitle>
-      <Subtitle className="StatTile_value" style={{ color: textColor }}>
+      <Subtitle regular className="StatTile_value" style={{ color: textColor }}>
         {value}
       </Subtitle>
     </div>

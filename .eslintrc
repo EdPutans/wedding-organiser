@@ -16,7 +16,7 @@
     "no-use-before-define": 0,
     "react/destructuring-assignment": 0,
     "react/jsx-filename-extension": [2, {"extensions": [".js"]}],
-    "import/no-cycle": 2,
+    "import/no-cycle": 0,
     "import/prefer-default-export": 1,
     "unicorn/import-index": 2
   },
