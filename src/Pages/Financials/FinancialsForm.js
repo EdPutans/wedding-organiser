@@ -10,6 +10,7 @@ import {
   Button,
 } from '@material-ui/core';
 import HEAModal from '../Modal/Modal';
+import LabelledInput from '../Settings/LabelledInput/LabelledInput';
 
 const hccategories = [{ key: 'Booze', value: 'alcohol' }, { key: 'Clothing', value: 'clothing' }];
 
@@ -25,9 +26,8 @@ const FinancialsForm = ({ open, close, title, editing, categories }) => {
       className="FinincialsForm"
       title={title || 'Add an expense'}
     >
-      <Input className="FinancialsForm_input" onChange={() => {}} placeholder="Name" />
-      <FormControl>
-        <InputLabel>Category</InputLabel>
+      <LabelledInput className="FinancialsForm_input" onChange={() => {}} placeholder="Name" />
+      <LabelledInput name="Category">
         <Select
           className="FinancialsForm_input"
           placeholder="Category"
@@ -38,8 +38,9 @@ const FinancialsForm = ({ open, close, title, editing, categories }) => {
             <MenuItem value={c.value}>{c.key}</MenuItem>
           ))}
         </Select>
-      </FormControl>
-      <Input
+      </LabelledInput>
+      <LabelledInput
+        name="Spent"
         className="FinancialsForm_input"
         type="number"
         onChange={() => {}}
@@ -47,7 +48,9 @@ const FinancialsForm = ({ open, close, title, editing, categories }) => {
       />
       <div className="FinancialsForm_buttons">
         <Button className="FinancialsForm_buttons_button">Save</Button>
-        <Button className="FinancialsForm_sec">Cancel</Button>
+        <Button className="FinancialsForm_sec" onClick={() => close()}>
+          Cancel
+        </Button>
       </div>
     </HEAModal>
   );

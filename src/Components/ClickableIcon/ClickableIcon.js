@@ -9,6 +9,9 @@ import {
   Favorite,
   Delete,
   FavoriteBorder,
+  Settings,
+  Person,
+  MonetizationOn,
 } from '@material-ui/icons';
 import ClickableDiv from '../ClickableDiv/ClickableDiv';
 import './styles.scss';
@@ -38,6 +41,22 @@ const ClickableIcon = ({
       case 'delete':
         return (
           <Delete
+            {...props}
+            style={{ ...style, fill: color, transform: `rotate(${rotate}deg)` }}
+            className="ClickableIcon"
+          />
+        );
+      case 'profile':
+        return (
+          <MonetizationOn
+            {...props}
+            style={{ ...style, fill: color, transform: `rotate(${rotate}deg)` }}
+            className="ClickableIcon"
+          />
+        );
+      case 'settings':
+        return (
+          <Settings
             {...props}
             style={{ ...style, fill: color, transform: `rotate(${rotate}deg)` }}
             className="ClickableIcon"

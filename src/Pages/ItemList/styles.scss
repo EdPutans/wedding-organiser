@@ -1,6 +1,5 @@
 @import '../../colors.scss';
 
-
 .ItemList{
   margin: auto;
   flex: 1;
@@ -11,22 +10,9 @@
   max-width: 700px;
   width: calc(100% - 32px);
   justify-content: center;
-  &_radioContainer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
   &_title{
     margin: auto;
     padding: 16px;
     color: $blackish !important;
-  }
-  &_input{
-    margin: 16px 0;
-    // background-color: $pink;
-  }
-  &_textarea{
-    // background-color: $pink;
-    margin: 16px 0;
   }
 }

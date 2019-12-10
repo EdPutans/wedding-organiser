@@ -5,10 +5,11 @@ import { Input, Select, MenuItem, FormControl, InputLabel, Tabs, Tab } from '@ma
 
 import Title from '../../Components/Title/Title';
 import Subtitle from '../../Components/Subtitle/Subtitle';
-import AddItem from '../../Components/AddItem/AddItem';
+import AddItemButton from '../../Components/AddItemButton/AddItemButton';
 import FinancialsForm from './FinancialsForm';
 import ListTab from './ListTab';
 import CategoryTab from './CategoryTab';
+import LabelledInput from '../Settings/LabelledInput/LabelledInput';
 
 const hardcodedStats = {
   budget: 11000,
@@ -34,13 +35,6 @@ const hardcodedStats = {
   ],
 };
 
-export const tableHeader = (
-  <div className="Financials_row Financials_header">
-    <div className="Financials_row_text">Item</div>
-    <div className="Financials_row_text">Category</div>
-    <div className="Financials_row_text">Sum</div>
-  </div>
-);
 export const getUniqueCategories = items => {
   const result = [];
   items.forEach(
@@ -89,21 +83,21 @@ const Financials = ({ stats = hardcodedStats }) => {
   const renderFinancials = () => {
     if (tab === 1) {
       return (
-        <>
+        <React.Fragment>
           <div className="Financials_filters">
-            <Input
+            <LabelledInput
               className="Financials_filter"
               placeholder="Search"
               onChange={e =>
                 setItemsToDisplay(
-                  allItems.filter(item =>
-                    item.item.toLowerCase().includes(e.target.value.toLowerCase()),
-                  ),
+                  allItems.filter(item => item.item.toLowerCase().includes(e.toLowerCase())),
                 )
               }
             />
-            <FormControl>
-              <InputLabel>Category</InputLabel>
+
+            {/* REPLACE ALL INOUTS WITH LABELLED INPUTS */}
+
+            <LabelledInput name="Category">
               <Select
                 className="Financials_filter"
                 value={filters.category}
@@ -116,11 +110,11 @@ const Financials = ({ stats = hardcodedStats }) => {
                   </MenuItem>
                 ))}
               </Select>
-            </FormControl>
+            </LabelledInput>
           </div>
 
           <ListTab itemsToDisplay={itemsToDisplay} />
-        </>
+        </React.Fragment>
       );
     }
     return <CategoryTab itemsToDisplay={hardcodedStats.items} />;
@@ -141,7 +135,7 @@ const Financials = ({ stats = hardcodedStats }) => {
       </Tabs>
       <div style={{ height: '16px' }} />
       {renderFinancials()}
-      <AddItem onClick={() => setModalOpen(true)} />
+      <AddItemButton onClick={() => setModalOpen(true)} />
       <FinancialsForm open={modalOpen} close={() => setModalOpen(false)} />
     </div>
   );

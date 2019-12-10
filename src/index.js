@@ -1,16 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import megaReducer from './redux/reducerConfig';
 
-const store = createStore(megaReducer);
-
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={megaReducer()}>
     <App />
   </Provider>,
   document.getElementById('root'),

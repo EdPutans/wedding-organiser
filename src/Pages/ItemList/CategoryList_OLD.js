@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Input, Button } from '@material-ui/core';
 import { getLink } from '../../misc/shared';
 import placeholderImage from '../../Components/temp/placeholder.jpg';
+import LabelledInput from '../Settings/LabelledInput/LabelledInput';
 
 export const hardcodedInfo = {
   items: [
@@ -78,10 +79,10 @@ const CategoryList = ({ entity }) => {
     // TO DO: build entities as api/_entity_/...
   }, []);
 
-  const updateText = (e, item) => {
+  const updateText = (val, item) => {
     const itemToChangeIndex = entityInfo.items.findIndex(i => i.id === item.id);
     const newItems = [...entityInfo.items];
-    newItems[itemToChangeIndex].text = e.target.value;
+    newItems[itemToChangeIndex].text = val;
     setEntityInfo({ ...entityInfo, items: newItems });
   };
 
@@ -107,7 +108,7 @@ const CategoryList = ({ entity }) => {
         <img className="CategoryList_specRow_img" src={item.img || placeholderImage} />
       </div>
       <div className="CategoryList_specRow_text">
-        <Input
+        <LabelledInput
           className="CategoryList_specRow_text_input"
           rows={10}
           disableUnderline
@@ -142,7 +143,7 @@ const CategoryList = ({ entity }) => {
         {!addingLinkId && <Button onClick={() => setAddingLinkId(item.id)}>Add</Button>}
         {addingLinkId === item.id && (
           <React.Fragment>
-            <Input onChange={e => setNewLink(e.target.value)} />
+            <LabelledInput onChange={e => setNewLink(e)} />
             <div>
               <Button
                 onClick={() => {
