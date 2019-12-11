@@ -1,10 +1,10 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import './styles.scss';
-import { Input, Select, MenuItem, FormControl, InputLabel, Tabs, Tab } from '@material-ui/core';
+import { Select, MenuItem, Tabs, Tab } from '@material-ui/core';
 
 import Title from '../../Components/Title/Title';
-import Subtitle from '../../Components/Subtitle/Subtitle';
+
 import AddItemButton from '../../Components/AddItemButton/AddItemButton';
 import FinancialsForm from './FinancialsForm';
 import ListTab from './ListTab';

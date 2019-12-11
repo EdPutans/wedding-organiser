@@ -24,8 +24,9 @@ const App = ({ detectResize, isMobile, loggedIn, categories }) => {
           <Switch>
             {loggedIn ? (
               <ContentWrapper isMobile={isMobile}>
-                {recursivelyCreateRoutes(routes)}
                 {recursivelyCreateRoutes(categories)}
+                {recursivelyCreateRoutes(routes)}
+
                 {/* // add a 404!! */}
               </ContentWrapper>
             ) : (
@@ -42,7 +43,7 @@ App.propTypes = {
   loggedIn: PropTypes.bool,
   detectResize: PropTypes.func.isRequired,
   isMobile: PropTypes.bool.isRequired,
-  categories: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  categories: PropTypes.shape().isRequired,
 };
 
 App.defaultProps = {

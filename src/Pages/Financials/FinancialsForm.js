@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
 import './formStyles.scss';
-import {
-  Input,
-  Select,
-  MenuItem,
-  InputAdornment,
-  FormControl,
-  InputLabel,
-  Button,
-} from '@material-ui/core';
+import { Select, MenuItem, InputAdornment, Button } from '@material-ui/core';
 import HEAModal from '../Modal/Modal';
 import LabelledInput from '../Settings/LabelledInput/LabelledInput';
 

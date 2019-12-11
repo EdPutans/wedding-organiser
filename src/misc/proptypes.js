@@ -14,3 +14,10 @@ export const styleProps = PropTypes.shape({
   width: PropTypes.string,
   flex: PropTypes.number,
 });
+export const routeProps = PropTypes.shape({
+  path: PropTypes.string.isRequired,
+  component: PropTypes.node,
+  title: PropTypes.string.isRequired,
+  endpoint: PropTypes.string,
+  props: PropTypes.shape(),
+});

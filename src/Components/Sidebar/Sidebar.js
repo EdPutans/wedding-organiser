@@ -11,18 +11,18 @@ import { getCategories } from '../../redux/categories/selectors';
 const ConditionalSidebar = ({ isMobile, open, close, routes, history }) => {
   const sidebar = (
     <div className="Sidebar">
-      {Object.keys(routes.categories).map(r => (
+      {Object.keys(routes).map(r => (
         <NavLink
-          key={routes.categories[r].path}
+          key={routes[r].path}
           className={`Sidebar_link${
-            history && history.location && history.location.pathname === routes.categories[r].path
+            history && history.location && history.location.pathname === routes[r].path
               ? '_selected'
               : ''
           }`}
-          to={routes.categories[r].path}
+          to={routes[r].path}
           onClick={close}
         >
-          {routes.categories[r].buttonText}
+          {routes[r].title}
         </NavLink>
       ))}
     </div>

@@ -74,4 +74,4 @@ const mapStateToProps = state => ({
   error: getSignInError(state),
 });
 
-export default connect()(Register);
+export default connect(mapStateToProps)(Register);

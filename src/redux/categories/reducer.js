@@ -1,87 +1,98 @@
-// import * as c from './constants';
-
-const consts = {
-  LIST: 'LIST',
-  SUBCATS: 'SUBCATS',
+export const componentTypes = {
+  LIST: 'list',
+  SUBCATEGORY: 'subCategory',
 };
 
 const hcCategories = {
-  categories: {
-    clothing: {
-      path: '/clothing',
-      type: consts.SUBCATS,
-      buttonText: 'Clothing',
-    },
-    jewelry: {
-      path: '/jewelry',
-      type: consts.SUBCATS,
-      buttonText: 'Jewelry',
-    },
-    appearance: {
-      path: '/appearance',
-      type: consts.SUBCATS,
-      buttonText: 'Appearance',
-    },
-    transportation: {
-      path: '/transportation',
-      type: consts.SUBCATS,
-      buttonText: 'Transportation',
-    },
-    venue: {
-      path: '/venue',
-      type: consts.SUBCATS,
-      buttonText: 'Venue',
-    },
-    registryOffice: {
-      path: '/registry-office',
-      type: consts.SUBCATS,
-      buttonText: 'Registry Office',
-    },
-    photographer: {
-      path: '/photographer',
-      type: consts.SUBCATS,
-      buttonText: 'Photographer',
-    },
-    musicians: {
-      path: '/musicians',
-      type: consts.SUBCATS,
-      buttonText: 'Musicians',
-    },
-    guestList: {
-      path: '/guest-list',
-      type: consts.SUBCATS,
-      buttonText: 'Guest List',
-    },
-    honeymoon: {
-      path: '/honeymoon',
-      type: consts.SUBCATS,
-      buttonText: 'Honeymoon',
-    },
-    invitations: {
-      path: '/invitations',
-      type: consts.SUBCATS,
-      buttonText: 'Invitations',
-    },
-    flowers: {
-      path: '/flowers',
-      type: consts.SUBCATS,
-      buttonText: 'Flowers',
-    },
-    decorations: {
-      path: '/decorations',
-      type: consts.SUBCATS,
-      buttonText: 'Decorations',
-    },
-    guestGifts: {
-      path: '/guest-gifts',
-      type: consts.SUBCATS,
-      buttonText: 'Gifts for guests',
-    },
-    alcohol: {
-      path: '/alcohol',
-      type: consts.SUBCATS,
-      buttonText: 'Alcohol',
-    },
+  clothing: {
+    path: '/clothing',
+    endpoint: '/clothing',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Clothing',
+  },
+  jewelry: {
+    path: '/jewelry',
+    endpoint: '/jewelry',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Jewelry',
+  },
+  appearance: {
+    path: '/appearance',
+    endpoint: '/appearance',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Appearance',
+  },
+  transportation: {
+    path: '/transportation',
+    endpoint: '/transportation',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Transportation',
+  },
+  venue: {
+    path: '/venue',
+    endpoint: '/venue',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Venue',
+  },
+  registryOffice: {
+    path: '/registry-office',
+    endpoint: '/registry-office',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Registry Office',
+  },
+  photographer: {
+    path: '/photographer',
+    endpoint: '/photographer',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Photographer',
+  },
+  musicians: {
+    path: '/musicians',
+    endpoint: '/musicians',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Musicians',
+  },
+  guestList: {
+    path: '/guest-list',
+    endpoint: '/guest-list',
+    type: componentTypes.LIST,
+    title: 'Guest List',
+  },
+  honeymoon: {
+    path: '/honeymoon',
+    endpoint: '/honeymoon',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Honeymoon',
+  },
+  invitations: {
+    path: '/invitations',
+    endpoint: '/invitations',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Invitations',
+  },
+  flowers: {
+    path: '/flowers',
+    endpoint: '/flowers',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Flowers',
+  },
+  decorations: {
+    path: '/decorations',
+    endpoint: '/decorations',
+    type: componentTypes.LIST,
+    title: 'Decorations',
+  },
+  guestGifts: {
+    path: '/guest-gifts',
+    endpoint: '/guest-gifts',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Gifts for guests',
+  },
+  alcohol: {
+    path: '/alcohol',
+    endpoint: '/alcohol',
+    type: componentTypes.SUBCATEGORY,
+    title: 'Alcohol',
   },
 };
 
