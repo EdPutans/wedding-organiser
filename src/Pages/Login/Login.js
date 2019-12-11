@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.scss';
-import { Input, Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CardWrap from '../../Components/LoggedOutWrapper/LoggedOutCardWrapper';

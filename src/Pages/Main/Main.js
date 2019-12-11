@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './styles.scss';
 import { historyProps } from '../../misc/proptypes';
 import StatTile from '../../Components/StatTile/StatTile';
 import colors from '../../colors.scss';
 
 const Main = ({ history }) => {
-  const [timeRemaining, setTimeRemaining] = useState(
-    'X months, X days, X hours X minutes remain...',
-  );
-  const { pink, blackish, white, grey, copper } = colors;
+  const [timeRemaining] = useState('X months, X days, X hours X minutes remain...');
+  const { pink, blackish, white, grey, dimCopper, copper } = colors;
 
   return (
     <div className="Main">
@@ -31,7 +29,7 @@ const Main = ({ history }) => {
         <StatTile
           title="Budget remaining"
           value="£ 15 000"
-          borderColor={copper}
+          borderColor={dimCopper}
           textColor={copper}
         />
       </div>
@@ -41,15 +39,15 @@ const Main = ({ history }) => {
           value="12 / 51"
           textColor={grey}
           backgroundColor={white}
-          borderColor={copper}
+          borderColor={dimCopper}
         />
       </div>
       <div className="Main_tileRow">
         <StatTile
           title="Tasks completed"
           value="29 / 171"
-          backgroundColor={copper}
-          textColor={white}
+          backgroundColor={dimCopper}
+          textColor={blackish}
         />
       </div>
     </div>

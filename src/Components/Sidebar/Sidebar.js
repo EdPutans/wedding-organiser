@@ -2,32 +2,29 @@ import React from 'react';
 import './styles.scss';
 import { connect } from 'react-redux';
 import Drawer from '@material-ui/core/Drawer';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getIsMobile } from '../../redux/app/selectors';
-import ClickableIcon from '../ClickableIcon/ClickableIcon';
-import colors from '../../colors.scss';
+import { historyProps } from '../../misc/proptypes';
+import { getCategories } from '../../redux/categories/selectors';
 
-const ConditionalSidebar = ({ isMobile, open, close, routes }) => {
+const ConditionalSidebar = ({ isMobile, open, close, routes, history }) => {
   const sidebar = (
     <div className="Sidebar">
-      <div className="Sidebar_link_container">
-        {routes.map(r => (
-          <NavLink key={r.path} className="Sidebar_link" to={r.path} onClick={close}>
-            {r.buttonText}
-          </NavLink>
-        ))}
-      </div>
-      {isMobile && (
-        <div className="Sidebar_unlocker_container">
-          <React.Fragment>
-            <div className="Sidebar_arrow">
-              <ClickableIcon onClick={close} icon="chevron" rotate={180} color={colors.copper} />
-            </div>
-            <div className="Sidebar_unlocker" />
-          </React.Fragment>
-        </div>
-      )}
+      {Object.keys(routes.categories).map(r => (
+        <NavLink
+          key={routes.categories[r].path}
+          className={`Sidebar_link${
+            history && history.location && history.location.pathname === routes.categories[r].path
+              ? '_selected'
+              : ''
+          }`}
+          to={routes.categories[r].path}
+          onClick={close}
+        >
+          {routes.categories[r].buttonText}
+        </NavLink>
+      ))}
     </div>
   );
 
@@ -43,13 +40,14 @@ const ConditionalSidebar = ({ isMobile, open, close, routes }) => {
 ConditionalSidebar.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   isMobile: PropTypes.bool.isRequired,
-  open: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  history: historyProps.isRequired,
   close: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  // routes: getCategories(state),
   isMobile: getIsMobile(state),
+  routes: getCategories(state),
 });
 
-export default connect(mapStateToProps)(ConditionalSidebar);
+export default withRouter(connect(mapStateToProps)(ConditionalSidebar));

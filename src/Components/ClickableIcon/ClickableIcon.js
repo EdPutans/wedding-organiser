@@ -10,7 +10,6 @@ import {
   Delete,
   FavoriteBorder,
   Settings,
-  Person,
   MonetizationOn,
 } from '@material-ui/icons';
 import ClickableDiv from '../ClickableDiv/ClickableDiv';
@@ -46,7 +45,7 @@ const ClickableIcon = ({
             className="ClickableIcon"
           />
         );
-      case 'profile':
+      case 'finances':
         return (
           <MonetizationOn
             {...props}
@@ -127,13 +126,15 @@ const ClickableIcon = ({
 ClickableIcon.propTypes = {
   icon: PropTypes.oneOf([
     'menu',
+    'delete',
+    'finances',
+    'settings',
     'edit',
-    'decline',
-    'confirm',
     'chevron',
+    'decline',
     'fav_on',
     'fav_off',
-    'delete',
+    'confirm',
   ]).isRequired,
   divStyle: PropTypes.shape(),
   onClick: PropTypes.func.isRequired,
@@ -143,6 +144,7 @@ ClickableIcon.propTypes = {
   style: styleProps,
   size: PropTypes.number,
 };
+
 ClickableIcon.defaultProps = {
   size: 20,
   rotate: 0,

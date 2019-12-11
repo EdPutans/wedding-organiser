@@ -5,11 +5,12 @@ $lightGrey: #E1E2E1;
 $grey: #A2A2A2;
 $lightRed: #ff6d6d;
 $darken: rgba(0, 0, 0, 0.5);
-$logoBarSize: 50px;
+$logoBarSize: 55px;
 $blackish: #444444;
 $copper: #fc9483;
+$dimCopper: #ffe1dc;
 
-$sidebarWidth: 260px;
+$sidebarWidth: 210px;
 
 :export{
   sidebarWidth: $sidebarWidth;
@@ -21,6 +22,7 @@ $sidebarWidth: 260px;
   lightRed: $lightRed;
   copper: $copper;
   blackish: $blackish;
+  dimCopper: $dimCopper;
 }
 
 $phone: 'screen and (max-width: 766px)';

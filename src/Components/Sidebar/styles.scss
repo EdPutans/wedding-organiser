@@ -4,50 +4,28 @@
 .Sidebar{
   background-color: white;
   width: $sidebarWidth;
-  flex: 1;
   position: fixed;
-  z-index: 14;
+  z-index: 10;
+  padding: 16px 0;
+  overflow: auto;
+  flex: 1;
+  border-right: 1px solid $copper;
   display: flex;
-  flex-direction: row;
-  height: 100%;;
+  flex-direction: column;
+  height: 100%;
   @include respond-to($desktop, $tablet){
-    height: 85%;
-    margin: 16px 0;
-  }
-  &_unlocker{
-    width: 2px;
-    background-color: $copper;
-    flex: 1;
-    &_container{
-      width: 20px;
-      margin: 0 0 0 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      z-index: 2;
-    }
-  }
-  &_arrow{
-    $size: 30px; 
-    width: $size;
-    height: $size;
-    border-radius: $size;
-    background-color: $white;
-    border: 2px solid $copper;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: $logoBarSize;
   }
   &_link{
     font-size: 16px;
-    margin: 8px 32px;
+    padding: 8px 16px;
+    margin: 0 16px;
     text-decoration: none;
     color: $copper;
-    &_container{
-      overflow: auto;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
+    &_selected{
+      @extend .Sidebar_link;
+      background-color: $copper;
+      color: white;
     }
   }
 }

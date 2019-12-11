@@ -1,52 +1,52 @@
 import React from 'react';
-import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { Switch, BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core';
 import ReactResizeDetector from 'react-resize-detector';
 import PropTypes from 'prop-types';
 
-import { recursivelyCreateRoutes, routes } from './routes';
+import { recursivelyCreateRoutes, routes, publics } from './routes';
 import materialTheme from './materialTheme';
 import './shared.scss';
 import { screenResizeAction } from './redux/app/actions';
 import { getIsMobile } from './redux/app/selectors';
 import { getCategories } from './redux/categories/selectors';
 import ContentWrapper from './Components/ContentWrapper/ContentWrapper';
-import UnderConstruction from './Pages/UnderConstruction';
+import LoggedOutWrapper from './Components/LoggedOutWrapper/LoggedOutWrapper';
 
 const App = ({ detectResize, isMobile, loggedIn, categories }) => {
-  recursivelyCreateRoutes(routes);
-  recursivelyCreateRoutes(categories);
-
   return (
     <React.Fragment>
-      {/* DO NOT TOUCH THE NESTING OF COMPONENTS HERE!!!! */}
       <ReactResizeDetector handleWidth onResize={w => detectResize(w)} />
       <MuiThemeProvider theme={materialTheme}>
-        {/* {loggedIn ? ( */}
+        {/* DO NOT TOUCH THE NESTING OF COMPONENTS HERE!!!! */}
         <BrowserRouter>
           <Switch>
-            <ContentWrapper isMobile={isMobile}>
-              {recursivelyCreateRoutes(routes)}
-              {recursivelyCreateRoutes(categories)}
-              {/* // add a 404!! */}
-            </ContentWrapper>
+            {loggedIn ? (
+              <ContentWrapper isMobile={isMobile}>
+                {recursivelyCreateRoutes(routes)}
+                {recursivelyCreateRoutes(categories)}
+                {/* // add a 404!! */}
+              </ContentWrapper>
+            ) : (
+              <LoggedOutWrapper>{recursivelyCreateRoutes(publics)}</LoggedOutWrapper>
+            )}
           </Switch>
         </BrowserRouter>
-        {/* ) : ( */}
-        {/* <LoggedOutWrapper> */}
-        {/* <PublicRoutes /> */}
-        {/* </LoggedOutWrapper> */}
-        {/* )} */}
-        {/* </Switch> */}
       </MuiThemeProvider>
     </React.Fragment>
   );
 };
 
 App.propTypes = {
+  loggedIn: PropTypes.bool,
   detectResize: PropTypes.func.isRequired,
   isMobile: PropTypes.bool.isRequired,
+  categories: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+};
+
+App.defaultProps = {
+  loggedIn: true,
 };
 
 const mapStateToProps = state => ({

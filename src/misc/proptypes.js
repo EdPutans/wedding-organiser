@@ -1,16 +1,16 @@
 /* eslint-disable import/prefer-default-export */
 import { PropTypes } from 'prop-types';
 
-export const historyProps = {
+export const historyProps = PropTypes.shape({
   push: PropTypes.func.isRequired,
   location: PropTypes.string.isRequired,
-};
+});
 
-export const styleProps = {
+export const styleProps = PropTypes.shape({
   color: PropTypes.string,
   backgroundColor: PropTypes.string,
   fill: PropTypes.string,
   height: PropTypes.string,
   width: PropTypes.string,
   flex: PropTypes.number,
-};
+});

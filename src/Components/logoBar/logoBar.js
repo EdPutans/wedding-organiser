@@ -4,26 +4,34 @@ import { withRouter } from 'react-router-dom';
 import ClickableDiv from '../ClickableDiv/ClickableDiv';
 import { routes } from '../../routes';
 import ClickableIcon from '../ClickableIcon/ClickableIcon';
-import { copper } from '../../colors.scss';
+import { white } from '../../colors.scss';
 
-const LogoBar = ({ history }) => {
+const LogoBar = ({ history, onClickBurger, isMobile }) => {
   return (
     <div className="LogoBar_container">
-      <ClickableDiv className="LogoBar" onClick={() => history.push(routes.home.path)}>
-        <p className="LogoBar_logoText">Happily Ever After</p>
+      {isMobile && (
+        <ClickableIcon
+          icon="menu"
+          onClick={onClickBurger}
+          color={white}
+          className="LogoBar_icon_menu"
+        />
+      )}
+      <ClickableDiv className="LogoBar_logoText" onClick={() => history.push(routes.home.path)}>
+        <p>Happily Ever After</p>
       </ClickableDiv>
       <div className="LogoBar_icon_container">
         <ClickableIcon
-          color={copper}
+          color={white}
           onClick={() => history.push(routes.finances.path)}
-          size={30}
+          size={25}
           className="LogoBar_icon"
-          icon="profile"
+          icon="finances"
         />
         <ClickableIcon
-          color={copper}
+          color={white}
           onClick={() => history.push(routes.settings.path)}
-          size={30}
+          size={25}
           className="LogoBar_icon"
           icon="settings"
         />

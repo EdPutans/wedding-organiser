@@ -62,8 +62,3 @@ export const recursivelyCreateRoutes = routeList => {
     );
   });
 };
-
-const publicRoutesArray = [];
-recursivelyCreateRoutes(publics, publicRoutesArray);
-
-export const PublicRoutes = () => publicRoutesArray;

@@ -6,27 +6,36 @@
     top: 0;
     width: 100%;
     height: $logoBarSize;
-    z-index: 9;
+    z-index: 15;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: $white;
+    background-color: $copper; 
   }
   &_logoText{
     margin-left: 16px;
     @include respond-to($phone){
-      margin-left: 50px;
+      margin: auto;
     }
-    color: $copper;
-    font-size: 32px;
-    font-family: "Fancy";
+    & p {
+      color: white;
+      font-size: 40px;
+      font-family: "Fancy";
+      @include respond-to($phone){
+        font-size: 25px;
+      }
+    }
   }
   &_icon{
-    margin: 4px;
+    margin: 4px 8px;
     &_container{
+      position: absolute;
+      right: 16px;
       display: flex;
-      padding: 0 16px 0 0;
       align-items: center;
+    }
+    &_menu{
+      position: absolute;
+      left: 16px;
     }
   }
 }
