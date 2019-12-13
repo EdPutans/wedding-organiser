@@ -15,7 +15,7 @@ export const defaultHeaders = {
 
 export default (url, { method, body }, other) =>
   fetch(url, {
-    method,
+    method: method || 'GET',
     body: JSON.stringify(body),
     headers: {
       ...defaultHeaders,
@@ -39,4 +39,10 @@ export const getError = r => {
     return r.message;
   }
   return 'Something went wrong, try again :(';
+};
+
+export const combineQueries = queryObject => {
+  Object.keys(queryObject)
+    .map(key => `${key}=${queryObject[key]}`)
+    .join('&');
 };
