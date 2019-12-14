@@ -47,9 +47,9 @@ export const createItemError = (itemName, error) => ({
   payload: error,
 });
 
-// update all
+// update single
 export const saveItemPending = itemName => ({
-  type: c.SAVE_ITEMS_PENDING(itemName),
+  type: c.SAVE_ITEMS_PEND§ING(itemName),
   name: itemName,
 });
 export const saveItemSuccess = (itemName, result) => ({
@@ -58,6 +58,22 @@ export const saveItemSuccess = (itemName, result) => ({
   payload: result,
 });
 export const saveItemError = (itemName, error) => ({
+  type: c.SAVE_ITEMS_ERROR(itemName),
+  name: itemName,
+  payload: error,
+});
+
+// update all
+export const saveItemsPending = itemName => ({
+  type: c.SAVE_ITEMS_PENDING(itemName),
+  name: itemName,
+});
+export const saveItemsSuccess = (itemName, result) => ({
+  type: c.SAVE_ITEMS_SUCCESS(itemName),
+  name: itemName,
+  payload: result,
+});
+export const saveItemsError = (itemName, error) => ({
   type: c.SAVE_ITEMS_ERROR(itemName),
   name: itemName,
   payload: error,
@@ -77,4 +93,9 @@ export const deleteItemsError = (itemName, error) => ({
   type: c.DELETE_ITEMS_ERROR(itemName),
   name: itemName,
   payload: error,
+});
+
+export const undoChanges = itemName => ({
+  type: c.UNDO_CHANGES,
+  payload: itemName,
 });
