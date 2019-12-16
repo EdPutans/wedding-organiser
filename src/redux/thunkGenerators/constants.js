@@ -19,8 +19,8 @@ export const SAVE_ITEM_PENDING = item => `SAVE_ITEM_PENDING_${item}`;
 export const SAVE_ITEM_SUCCESS = item => `SAVE_ITEM_SUCCESS_${item}`;
 export const SAVE_ITEM_ERROR = item => `SAVE_ITEM_ERROR_${item}`;
 // delete
-export const DELETE_ITEMS_PENDING = items => `DELETE_ITEMS_PENDING_${items}`;
-export const DELETE_ITEMS_SUCCESS = items => `DELETE_ITEMS_SUCCESS_${items}`;
-export const DELETE_ITEMS_ERROR = items => `DELETE_ITEMS_ERROR_${items}`;
+export const DELETE_ITEM_PENDING = items => `DELETE_ITEM_PENDING_${items}`;
+export const DELETE_ITEM_SUCCESS = items => `DELETE_ITEM_SUCCESS_${items}`;
+export const DELETE_ITEM_ERROR = items => `DELETE_ITEM_ERROR_${items}`;
 // other
 export const UNDO_CHANGES = item => `UNDO_CHANGES_${item}`;

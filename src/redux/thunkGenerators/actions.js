@@ -1,4 +1,5 @@
 import * as c from './constants';
+
 // fetch all
 export const getItemsPending = itemName => ({
   type: c.GET_ITEMS_PENDING(itemName),
@@ -16,9 +17,10 @@ export const getItemsError = (itemName, error) => ({
 });
 
 // fetch single
-export const getItemPending = itemName => ({
-  type: c.GET_ITEM_PENDING(itemName),
+export const getItemPending = (itemName, itemID) => ({
+  type: c.GET_ITEM_PENDING(itemName, itemID),
   name: itemName,
+  payload: itemID,
 });
 export const getItemSuccess = (itemName, result) => ({
   type: c.GET_ITEM_SUCCESS(itemName),
@@ -32,9 +34,10 @@ export const getItemError = (itemName, error) => ({
 });
 
 // create single
-export const createItemPending = itemName => ({
+export const createItemPending = (itemName, itemID) => ({
   type: c.CREATE_ITEM_PENDING(itemName),
   name: itemName,
+  payload: itemID,
 });
 export const createItemSuccess = (itemName, result) => ({
   type: c.CREATE_ITEM_SUCCESS(itemName),
@@ -48,17 +51,20 @@ export const createItemError = (itemName, error) => ({
 });
 
 // update single
-export const saveItemPending = itemName => ({
-  type: c.SAVE_ITEMS_PEND§ING(itemName),
+export const saveItemPending = (itemName, itemID) => ({
+  type: c.SAVE_ITEM_PENDING(itemName),
   name: itemName,
+  payload: itemID,
 });
+
 export const saveItemSuccess = (itemName, result) => ({
-  type: c.SAVE_ITEMS_SUCCESS(itemName),
+  type: c.SAVE_ITEM_SUCCESS(itemName),
   name: itemName,
   payload: result,
 });
+
 export const saveItemError = (itemName, error) => ({
-  type: c.SAVE_ITEMS_ERROR(itemName),
+  type: c.SAVE_ITEM_ERROR(itemName),
   name: itemName,
   payload: error,
 });
@@ -80,17 +86,17 @@ export const saveItemsError = (itemName, error) => ({
 });
 
 // delete
-export const deleteItemsPending = itemName => ({
-  type: c.DELETE_ITEMS_PENDING(itemName),
+export const deleteItemPending = itemName => ({
+  type: c.DELETE_ITEM_PENDING(itemName),
   name: itemName,
 });
-export const deleteItemsSuccess = (itemName, result) => ({
-  type: c.DELETE_ITEMS_SUCCESS(itemName),
+export const deleteItemSuccess = (itemName, result) => ({
+  type: c.DELETE_ITEM_SUCCESS(itemName),
   name: itemName,
   payload: result,
 });
-export const deleteItemsError = (itemName, error) => ({
-  type: c.DELETE_ITEMS_ERROR(itemName),
+export const deleteItemError = (itemName, error) => ({
+  type: c.DELETE_ITEM_ERROR(itemName),
   name: itemName,
   payload: error,
 });

@@ -10,8 +10,8 @@ export const getStuff = (itemName, endpoint, search) => dispatch => {
     .catch(r => dispatch(actions.getItemsError(itemName, getError(r))));
 };
 
-export const getItem = (itemName, endpoint, id, search) => dispatch => {
-  dispatch(actions.getItemPending(itemName));
+export const getItem = (itemName, endpoint, id) => dispatch => {
+  dispatch(actions.getItemPending(itemName, id));
   requests
     .getItem(endpoint, id)
     .then(r => dispatch(actions.getItemSuccess(itemName, getResult(r))))
@@ -27,7 +27,7 @@ export const saveStuff = (itemName, endpoint, items) => dispatch => {
 };
 
 export const saveItem = (itemName, endpoint, item) => dispatch => {
-  dispatch(actions.saveItemPending(itemName));
+  dispatch(actions.saveItemPending(itemName, item.id));
   requests
     .saveItem(endpoint, item)
     .then(r => dispatch(actions.saveItemSuccess(itemName, getResult(r))))
@@ -43,9 +43,9 @@ export const createItem = (itemName, endpoint, item) => dispatch => {
 };
 
 export const deleteItem = (itemName, endpoint, id) => dispatch => {
-  dispatch(actions.deleteItemsPending(itemName));
+  dispatch(actions.deleteItemPending(itemName, id));
   requests
     .deleteItem(endpoint, id)
-    .then(r => dispatch(actions.deleteItemsSuccess(itemName, getResult(r))))
-    .catch(r => dispatch(actions.deleteItemsError(itemName, getError(r))));
+    .then(r => dispatch(actions.deleteItemSuccess(itemName, getResult(r))))
+    .catch(r => dispatch(actions.deleteItemError(itemName, getError(r))));
 };
