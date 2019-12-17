@@ -8,7 +8,7 @@ import Financials from './Pages/Financials/Financials';
 import Settings from './Pages/Settings/Settings';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
-import { componentTypes } from './redux/categories/reducer';
+import { componentTypes } from './redux/categories/categoriesShape';
 
 export const routes = {
   home: {

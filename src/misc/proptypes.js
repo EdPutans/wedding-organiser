@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 
 export const historyProps = PropTypes.shape({
   push: PropTypes.func.isRequired,
-  location: PropTypes.string.isRequired,
+  location: PropTypes.shape().isRequired,
 });
 
 export const styleProps = PropTypes.shape({

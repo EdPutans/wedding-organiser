@@ -1,5 +1,7 @@
-import { componentTypes } from './reducer';
-
+export const componentTypes = {
+  LIST: 'list',
+  SUBCATEGORY: 'subCategory',
+};
 export default {
   clothing: {
     path: '/clothing',
@@ -8,7 +10,7 @@ export default {
     title: 'Clothing',
     subCategories: [
       {
-        name: 'For her',
+        name: 'For herski',
         links: [
           { name: 'Link with things', endpoint: 'link-with-things' },
           { name: 'Link with things', endpoint: 'link-with-things' },

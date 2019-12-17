@@ -1,10 +1,5 @@
 import categoriesShape from './categoriesShape';
 
-export const componentTypes = {
-  LIST: 'list',
-  SUBCATEGORY: 'subCategory',
-};
-
 const initialState = {
   routes: categoriesShape,
 };

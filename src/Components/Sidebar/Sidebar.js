@@ -8,7 +8,7 @@ import { getIsMobile } from '../../redux/app/selectors';
 import { historyProps } from '../../misc/proptypes';
 import { getCategories } from '../../redux/categories/selectors';
 
-const ConditionalSidebar = ({ isMobile, open, close, routes, history }) => {
+const Sidebar = ({ isMobile, open, close, routes, history }) => {
   const sidebar = (
     <div className="Sidebar">
       {Object.keys(routes).map(r => (
@@ -37,8 +37,8 @@ const ConditionalSidebar = ({ isMobile, open, close, routes, history }) => {
   );
 };
 
-ConditionalSidebar.propTypes = {
-  routes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+Sidebar.propTypes = {
+  routes: PropTypes.shape().isRequired,
   isMobile: PropTypes.bool.isRequired,
   open: PropTypes.bool.isRequired,
   history: historyProps.isRequired,
@@ -50,4 +50,4 @@ const mapStateToProps = state => ({
   routes: getCategories(state),
 });
 
-export default withRouter(connect(mapStateToProps)(ConditionalSidebar));
+export default withRouter(connect(mapStateToProps)(Sidebar));
