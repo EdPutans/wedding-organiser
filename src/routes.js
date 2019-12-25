@@ -62,6 +62,33 @@ const getComponent = (page, props) => {
       return null;
   }
 };
+export const createListRoutes = routesList => {
+  const allListRoutes = Object.keys(routesList)
+    .map(key => routesList[key].subCategories)
+    .flat(1)
+    .map(item => {
+      if (item) {
+        return item.links;
+      }
+    })
+    .flat(1);
+
+  return allListRoutes.map((link, i) =>
+    link ? (
+      <Route
+        // eslint-disable-next-line react/no-array-index-key
+        key={link.endpoint + i}
+        path={link.endpoiunt}
+        exact
+        component={browserProps => (
+          <ItemList title={link.name} endpoint={link.endpoint} {...browserProps} />
+        )}
+      />
+    ) : (
+      <div>p</div>
+    ),
+  );
+};
 
 export const recursivelyCreateRoutes = routeList => {
   return Object.keys(routeList).map(route => {
@@ -71,7 +98,7 @@ export const recursivelyCreateRoutes = routeList => {
         key={page.path}
         exact
         path={page.path}
-        render={browserProps => getComponent(page, browserProps)}
+        component={browserProps => getComponent(page, browserProps)}
       />
     );
   });

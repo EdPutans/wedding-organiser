@@ -2,10 +2,13 @@ import React from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
 
+import { connect } from 'react-redux';
 import ListItem from '../../Components/ListItem/ListItem';
 import AddItem from '../../Components/AddItemButton/AddItemButton';
 import Title from '../../Components/Title/Title';
 import AddItemModal from '../../Components/AddItemModal/AddItemModal';
+import { clearListAction } from '../../redux/categories/actions';
+import { getCurrentList } from '../../redux/categories/selectors';
 
 export const hardcodedInfo = {
   items: [
@@ -55,9 +58,16 @@ export const hardcodedInfo = {
   ],
 };
 
-const ItemList = ({ title }) => {
+const ItemList = ({ title, list, clearList, endpoint }) => {
   const [editingItem, setEditingItem] = React.useState(null);
   const [addingItem, setAddingItem] = React.useState(null);
+
+  console.log('rendering', endpoint);
+  React.useEffect(() => {
+    // listThunkToRetrieveList(endpoint);
+    // return () => clearList();
+  }, []);
+
   return (
     <div className="ItemList">
       <Title className="ItemList_title">{title}</Title>
@@ -80,5 +90,14 @@ const ItemList = ({ title }) => {
 ItemList.propTypes = {
   title: PropTypes.string.isRequired,
 };
+const mapStateToProps = state => ({
+  list: getCurrentList(state),
+});
+const mapDispatchToProps = dispatch => ({
+  clearList: () => clearListAction(),
+});
 
-export default ItemList;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ItemList);

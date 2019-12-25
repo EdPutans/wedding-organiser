@@ -9,3 +9,5 @@ export const getCurrentCategory = (state, endpoint) => {
     );
   return state.categories.routes[cat];
 };
+
+export const getCurrentList = state => state.categories.list;

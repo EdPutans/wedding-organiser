@@ -1,0 +1,1 @@
+export const CLEAR_LIST_ACTION = 'CLEAR_LIST_ACTION';
